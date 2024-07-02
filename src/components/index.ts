@@ -1,1 +1,1 @@
-export * from './ZRUButton/index';
+export { default as ZButton } from './ZRUButton/index';

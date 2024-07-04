@@ -6,3 +6,5 @@ export * from './types';
 export * from './utils';
 export * from './validationSchema';
 export * from './components';
+export * from './higherOrderComponents';
+export * from './pages';

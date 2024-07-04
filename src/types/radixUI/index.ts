@@ -99,6 +99,22 @@ export enum ZRURadiusE {
   full = 'full'
 }
 
+export enum ZRUInputTypeE {
+  number = "number",
+  search = "search",
+  time = "time",
+  text = "text",
+  hidden = "hidden",
+  date = "date",
+  datetimeLocal = "datetime-local",
+  email = "email",
+  month = "month",
+  password = "password",
+  tel = "tel",
+  url = "url",
+  week = "week"
+}
+
 /**
  * Enum representing the scrollbars of radix ui ScrollArea element.
  */
@@ -299,6 +315,36 @@ export enum ZRUSelectContentPositionE {
 export enum ZRUAccordingTypeE {
   single = 'single',
   multiple = 'multiple'
+}
+
+/**
+ * Enum representing the 'wrap' of radix ui Link element.
+ */
+export enum ZRUUnderlineLinkE {
+  auto = 'auto',
+  always = 'always',
+  hover = 'hover',
+  none = 'none',
+}
+
+/**
+ * Enum representing the 'wrap' of radix ui Link element.
+ */
+export enum ZRUWrapLinkE {
+  wrap = 'wrap',
+  nowrap = 'nowrap',
+  pretty = 'pretty',
+  balance = 'balance',
+}
+
+/**
+ * Enum representing the 'weight' of radix ui Link element.
+ */
+export enum ZRULinkWeightE {
+  light = 'light',
+  regular = 'regular',
+  medium = 'medium',
+  bold = 'bold',
 }
 // #endregion
 

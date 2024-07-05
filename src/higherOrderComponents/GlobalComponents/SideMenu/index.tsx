@@ -37,6 +37,8 @@ const SideMenu: React.FC = () => {
     [ZSidebarRState.width]
   );
 
+  console.log({ ZSidebarRState });
+
   useEffect(() => {
     if (ZSidebarRState.isOpen) {
       document.body.style.overflow = "hidden";
@@ -53,6 +55,7 @@ const SideMenu: React.FC = () => {
         "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
         "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
       })}
+      zaions-selector-side-bar={JSON.stringify(ZSidebarRState)}
     >
       <div
         className={ZClassNames({

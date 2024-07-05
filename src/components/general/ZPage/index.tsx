@@ -1,5 +1,5 @@
 // #region ---- Core Imports ----
-import React from "react";
+import React, { useMemo } from "react";
 import { ZClassNames } from "zaions-react-tool-kit";
 
 // #endregion
@@ -25,13 +25,18 @@ interface IZPage {
  * @param helmet - Optional metadata for the document head provided through ReactHelmet.
  */
 const ZPage: React.FC<IZPage> = ({ children, className }) => {
+  const _style = useMemo<React.CSSProperties>(
+    () => ({
+      width: "100%",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+    }),
+    []
+  );
   return (
-    <div
-      className={ZClassNames(
-        "w-full min-h-screen flex flex-col overflow-hidden",
-        className
-      )}
-    >
+    <div className={ZClassNames(className)} style={_style}>
       {children}
     </div>
   );

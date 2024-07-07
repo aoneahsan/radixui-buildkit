@@ -61,10 +61,10 @@ const ZUserAvatar: React.FC<ZUserAvatarI> = ({
         fallback={fallback}
       />
       {isZNonEmptyString(text) ? (
-        <ZFlex align={ZRUAlignE.center} className="gap-1 hover:text-gray8">
+        <ZFlex align={ZRUAlignE.center} className="gap-2 hover:text-gray8">
           <ZText className={ZClassNames(textClassName)}>{text}</ZText>
           <ChevronDownIcon
-            className={ZClassNames(arrowDownClassName, "w-5 h-5")}
+            className={ZClassNames(arrowDownClassName, "w-3 h-3")}
           />
         </ZFlex>
       ) : null}

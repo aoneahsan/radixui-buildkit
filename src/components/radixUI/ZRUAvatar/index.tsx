@@ -13,7 +13,7 @@ import { Avatar } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRURadiusE, ZRUColorE } from "@src/types/radixUI";
+import { ZRURadiusE, ZRUColorE, ZRUAvatarVariantE } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 interface ZRUAvatarI {
   className?: string;
@@ -23,7 +23,7 @@ interface ZRUAvatarI {
   color?: ZRUColorE;
   highContrast?: boolean;
   radius?: ZRURadiusE;
-  variant?: "solid" | "soft";
+  variant?: ZRUAvatarVariantE;
   fallback: NonNullable<React.ReactNode>;
   size?: Responsive<"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9">;
 }
@@ -36,7 +36,7 @@ const ZRUAvatar: React.FC<ZRUAvatarI> = (props) => {
   return (
     <Avatar
       {...props}
-      variant={props?.variant ?? "solid"}
+      variant={props?.variant ?? ZRUAvatarVariantE.solid}
       radius={props?.radius ?? ZRURadiusE.full}
       color={props?.color ?? ZRUColorE.gray}
     />

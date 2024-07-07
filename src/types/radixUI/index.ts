@@ -26,6 +26,14 @@ export enum ZRUBasicVariantE {
 }
 
 /**
+ * Enum representing the variant of radix Avatar elements.
+ */
+export enum ZRUAvatarVariantE {
+  soft = 'soft',
+  solid = 'solid',
+}
+
+/**
  * Enum representing the variant of radix ui elements.
  */
 export enum ZRUTriggerVariantE {

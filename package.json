@@ -10,9 +10,11 @@
   ],
   "scripts": {
     "dev": "npm run update:linked-packages && tsup --watch",
-    "build": "npm run update:linked-packages && tsup",
+    "build": "npm run update:linked-packages && tsup && npm run build:css",
+    "build:css": "tailwindcss -i ./src/style.css -o ./dist/index.css --minify",
+    "build:css:watch": "tailwindcss -i ./src/style.css -o ./dist/index.css --watch",
     "test": "npm run update:linked-packages && vitest",
-    "update:linked-packages": "yarn && yarn link zaions-tool-kit && yarn link zaions-react-tool-kit && tsup",
+    "update:linked-packages": "yarn && yarn link zaions-tool-kit && yarn link zaions-react-tool-kit && tsup && npm run build:css",
     "push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main"
   },
   "repository": {
@@ -63,10 +65,10 @@
     "@radix-ui/themes": "^3.1.1",
     "formik": "^2.4.6",
     "react": "^18.3.1",
+    "recoil": "^0.7.7",
     "zaions-react-tool-kit": "*",
     "zaions-tool-kit": "*",
-    "zod": "^3.23.8",
-    "recoil": "^0.7.7"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@capacitor/core": "^6.1.0",
@@ -76,9 +78,12 @@
     "@radix-ui/themes": "^3.1.1",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
+    "autoprefixer": "^10.4.19",
     "formik": "^2.4.6",
+    "postcss": "^8.4.39",
     "react": "^18.3.1",
     "recoil": "^0.7.7",
+    "tailwindcss": "^3.4.4",
     "ts-node": "^10.9.2",
     "tsup": "^8.1.0",
     "typescript": "^5.5.3",

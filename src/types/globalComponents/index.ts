@@ -9,6 +9,8 @@ export enum ZSideE {
 export interface ZSidebarI {
     isOpen?: boolean;
     component?: React.FC<unknown>;
+    containerClassName?: string
+    containerStyle?: React.CSSProperties
     componentProps?: ZGenericObject<unknown>;
 
     //

@@ -13,12 +13,16 @@ import { useSetRecoilState } from "recoil";
 export const useZSideBar = <T>({
     component,
     props,
-    width
+    width,
+    containerClassName,
+    containerStyle
 }: {
     // eslint-disable-next-line
     component: React.FC<any>;
     props?: ZGenericObject<T>;
     width?: string;
+    containerClassName?: string
+    containerStyle?: React.CSSProperties
 }): {
     openSidebar: () => void;
     closeSidebar: () => void;
@@ -34,7 +38,9 @@ export const useZSideBar = <T>({
             isOpen: true,
             component,
             componentProps: { closeSidebar, ...props },
-            width: width
+            width,
+            containerClassName,
+            containerStyle
         }));
     };
 

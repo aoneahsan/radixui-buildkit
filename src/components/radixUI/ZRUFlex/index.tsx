@@ -39,6 +39,7 @@ interface ZRUFlexI extends ZRUStyleI, ZRUMarginI {
   gap?: Responsive<string>;
   gapX?: Responsive<string>;
   gapY?: Responsive<string>;
+  onClick?: () => void;
 }
 // #endregion
 
@@ -93,9 +94,11 @@ const ZRUFlex: React.FC<ZRUFlexI> = ({
   gap,
   gapX,
   gapY,
+  onClick,
 }) => {
   return (
     <Flex
+      onClick={onClick}
       p={p}
       px={px}
       py={py}

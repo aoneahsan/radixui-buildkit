@@ -34,6 +34,7 @@ interface ZUserAvatarI {
   textClassName?: string;
   text?: string;
   arrowDownClassName?: string;
+  onClick?: () => void;
 }
 
 const ZUserAvatar: React.FC<ZUserAvatarI> = ({
@@ -46,12 +47,14 @@ const ZUserAvatar: React.FC<ZUserAvatarI> = ({
   textClassName,
   text,
   arrowDownClassName,
+  onClick,
 }) => {
   return (
     <ZFlex
       gap="2"
       className={ZClassNames(className, "gap-3 cursor-pointer")}
       align={ZRUAlignE.center}
+      onClick={onClick}
     >
       <ZAvatar
         className={ZClassNames(avatarClassName)}

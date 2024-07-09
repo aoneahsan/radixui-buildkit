@@ -11,6 +11,7 @@ import { isZNonEmptyString } from "zaions-tool-kit";
 // #endregion
 
 // #region ---- Custom Imports ----
+import { ZBox, ZCard } from "@src/components";
 
 // #endregion
 
@@ -47,15 +48,15 @@ const SideMenu: React.FC = () => {
   }, [ZSidebarRState.isOpen]);
 
   return (
-    <div
+    <ZBox
       className={ZClassNames({
-        "fixed top-0 right-0 z-10 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
+        "fixed top-0 right-0 p-2 z-10 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
           true,
         "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
         "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
       })}
     >
-      <div
+      <ZBox
         className={ZClassNames({
           "absolute top-0 left-0 w-full h-full z-2": true,
           "bg-transparent": !ZSidebarRState?.shouldBackdropClose,
@@ -70,8 +71,8 @@ const SideMenu: React.FC = () => {
             }));
           }
         }}
-      ></div>
-      <div
+      ></ZBox>
+      <ZCard
         className={ZClassNames(ZSidebarRState.containerClassName, {
           "relative z-10 h-full shadow-lg": true,
           "maxSm:w-[75%!important] maxMd:w-1/2 xl:w-1/3": !isZNonEmptyString(
@@ -84,8 +85,8 @@ const SideMenu: React.FC = () => {
         ZSidebarRState?.component !== null ? (
           <ZSidebarRState.component {...ZSidebarRState.componentProps} />
         ) : null}
-      </div>
-    </div>
+      </ZCard>
+    </ZBox>
   );
 };
 

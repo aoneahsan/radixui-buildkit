@@ -18,3 +18,13 @@ export interface ZSidebarI {
     shouldBackdropClose?: boolean;
     side?: ZSideE;
 }
+
+// app vise popover interface
+export interface ZPopoverI {
+    isOpen?: boolean;
+    component?: React.FC<unknown>;
+    componentProps?: ZGenericObject<unknown>;
+    containerClassName?: string;
+    width?: string;
+    height?: string;
+}

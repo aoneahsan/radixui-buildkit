@@ -1,4 +1,4 @@
-import { ZSidebarRStateAtom } from "@src/store";
+import { ZPopoverRStateAtom, ZSidebarRStateAtom } from "@src/store";
 import { ZGenericObject } from "@src/types";
 import { useSetRecoilState } from "recoil";
 
@@ -56,3 +56,82 @@ export const useZSideBar = <T>({
 
     return { openSidebar, closeSidebar };
 };
+
+/**
+ * Custom hook for managing a popover state and actions.
+ *
+ * @param component - The React component to be rendered inside the popover.
+ * @param props - Optional additional properties to be passed to the popover component.
+ *
+ * @returns An object containing functions to show and hide the popover.
+ */
+export const useZPopover = <T>({
+    component,
+    componentProps,
+    width,
+    height,
+    containerClassName
+}: {
+    // eslint-disable-next-line
+    component: React.FC<any>
+    width?: string;
+    height?: string;
+    containerClassName?: string;
+    componentProps?: ZGenericObject<T>;
+    onDidDismiss?: <P>(props?: P) => void;
+}): {
+    showPopover: (showPopoverProps?: {
+        componentProps?: ZGenericObject<T> | undefined;
+        onDidDismiss?: (<P>(props?: P | undefined) => void) | undefined;
+    }) => void;
+    hidePopover: () => void;
+} => {
+    let _onDidDismiss: (<P>(props?: P) => void) | undefined;
+    const setZPopoverRStateAtom = useSetRecoilState(ZPopoverRStateAtom);
+
+    /**
+     * Function to hide the popover.
+     */
+    const hidePopover = <A>(props?: ZGenericObject<A>): void => {
+        if (_onDidDismiss !== undefined) {
+            _onDidDismiss(props);
+        }
+        //
+        setZPopoverRStateAtom((oldValues) => ({
+            ...oldValues,
+            isOpen: false
+        }));
+    };
+
+    /**
+     * Function to show the popover.
+     */
+    const showPopover = (showPopoverProps?: {
+        componentProps?: ZGenericObject<T>;
+        onDidDismiss?: <P>(props?: P) => void;
+    }): void => {
+        setZPopoverRStateAtom((oldValues) => ({
+            ...oldValues,
+            isOpen: true,
+            component,
+            componentProps: {
+                hidePopover,
+                ...componentProps,
+                ...showPopoverProps?.componentProps
+            },
+            width,
+            height,
+            containerClassName
+        }));
+
+        if (
+            showPopoverProps?.onDidDismiss !== undefined &&
+            showPopoverProps?.onDidDismiss !== null
+        ) {
+            _onDidDismiss = showPopoverProps?.onDidDismiss;
+        }
+    };
+
+    return { showPopover, hidePopover };
+};
+

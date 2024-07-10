@@ -5,12 +5,14 @@ import React from "react";
 
 // #region ---- Custom Imports ----
 import SideMenu from "./SideMenu";
+import ZHOPopover from "./Popover";
 // #endregion
 
 const ZGlobalComponents: React.FC = () => {
   return (
     <>
       <SideMenu />
+      <ZHOPopover />
     </>
   );
 };

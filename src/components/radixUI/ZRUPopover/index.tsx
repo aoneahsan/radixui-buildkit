@@ -1,10 +1,10 @@
 // #region ---- Core Imports ----
-import React from 'react';
+import React from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
-import { Popover } from '@radix-ui/themes';
+import { Popover } from "@radix-ui/themes";
 
 // #endregion
 
@@ -13,12 +13,13 @@ import { Popover } from '@radix-ui/themes';
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from '@radix-ui/themes/dist/cjs/props';
+import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 interface ZRUPopoverI {
   children?: React.ReactNode;
   disabled?: boolean;
   asChild?: boolean;
-  size?: Responsive<'1' | '2' | '3' | '4'>;
+  className?: string;
+  size?: Responsive<"1" | "2" | "3" | "4">;
   width?: Responsive<string>;
   maxWidth?: Responsive<string>;
   minWidth?: Responsive<string>;
@@ -41,9 +42,10 @@ interface ZRUPopoverI {
 const ZRUPopover: React.FC<ZRUPopoverI> = ({
   children,
   asChild,
+  className,
   size,
   width,
-  maxWidth = '28.125rem',
+  maxWidth = "28.125rem",
   minWidth,
   height,
   maxHeight,
@@ -52,8 +54,8 @@ const ZRUPopover: React.FC<ZRUPopoverI> = ({
   defaultOpen,
   onOpenChange,
   trigger = {
-    children: null
-  }
+    children: null,
+  },
 }) => {
   return (
     <Popover.Root
@@ -65,12 +67,13 @@ const ZRUPopover: React.FC<ZRUPopoverI> = ({
       trigger?.children !== undefined &&
       trigger?.children !== false ? (
         <Popover.Trigger>
-          <button className='focus:outline-none'>{trigger?.children}</button>
+          <button className="focus:outline-none">{trigger?.children}</button>
         </Popover.Trigger>
       ) : null}
 
       <Popover.Content
         maxWidth={maxWidth}
+        className={className}
         size={size}
         width={width}
         maxHeight={maxHeight}

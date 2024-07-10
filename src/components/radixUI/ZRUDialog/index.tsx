@@ -27,6 +27,7 @@ interface ZRUDialogI {
   highContrast?: boolean;
   open?: boolean;
   defaultOpen?: boolean;
+  className?: string;
   onOpenChange?(open: boolean): void;
   trigger?: {
     children?: React.ReactNode;
@@ -48,6 +49,7 @@ const ZRUDialog: React.FC<ZRUDialogI> = ({
   maxHeight,
   minHeight,
   open,
+  className,
   defaultOpen,
   onOpenChange,
   trigger = {
@@ -77,6 +79,7 @@ const ZRUDialog: React.FC<ZRUDialogI> = ({
         minWidth={minWidth}
         height={height}
         asChild={asChild}
+        className={className}
         onInteractOutside={(e) => {
           e.preventDefault(); // To prevent it from closing when clicking outside
         }}

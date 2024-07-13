@@ -29,6 +29,7 @@ interface ZRUCheckboxCardsGroupI {
   defaultValue?: string[];
   value?: string[];
   onChange?: React.FormEventHandler<HTMLDivElement>;
+  onValueChange?: (value: string[]) => void;
 }
 // #endregion
 

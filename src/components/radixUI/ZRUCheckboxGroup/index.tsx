@@ -29,6 +29,7 @@ interface ZRUCheckboxGroupI {
   name?: string;
   onChange?: React.FormEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
+  onValueChange?: (value: string[]) => void;
 }
 // #endregion
 

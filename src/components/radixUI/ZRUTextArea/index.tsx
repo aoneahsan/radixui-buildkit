@@ -1,5 +1,5 @@
 // #region ---- Core Imports ----
-import React from "react";
+import React, { useMemo } from "react";
 
 // #endregion
 
@@ -39,6 +39,9 @@ interface ZRUTextAreaI {
   label?: string;
   placeholder?: string;
   rows?: number;
+  isTouched?: boolean;
+  errorMessage?: string;
+  infoText?: string;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
 }
@@ -63,9 +66,22 @@ const ZRUTextArea: React.FC<ZRUTextAreaI> = ({
   label,
   placeholder,
   rows,
+  isTouched,
+  errorMessage,
+  infoText,
   onChange,
   onBlur,
 }) => {
+  const _isError = useMemo(
+    () =>
+      Array.isArray(errorMessage)
+        ? errorMessage?.length > 0
+        : typeof errorMessage === "string"
+        ? isZNonEmptyString(errorMessage)
+        : false,
+    [errorMessage]
+  );
+
   return (
     <ZRUBox className={className} style={style}>
       {isZNonEmptyString(label) ? (
@@ -96,6 +112,30 @@ const ZRUTextArea: React.FC<ZRUTextAreaI> = ({
         onBlur={onBlur}
         rows={rows}
       />
+
+      {/* Error */}
+      {isTouched && _isError ? (
+        <ZRUText
+          as={ZRUTextAsE.span}
+          size="1"
+          color={ZRUColorE.tomato}
+          className="font-medium"
+        >
+          {Array.isArray(errorMessage) ? errorMessage[0] : errorMessage}
+        </ZRUText>
+      ) : null}
+
+      {/* Info */}
+      {!isTouched && isZNonEmptyString(infoText) ? (
+        <ZRUText
+          as={ZRUTextAsE.span}
+          size="1"
+          color={ZRUColorE.gold}
+          className="font-medium"
+        >
+          {infoText}
+        </ZRUText>
+      ) : null}
     </ZRUBox>
   );
 };

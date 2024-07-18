@@ -1,5 +1,5 @@
 // #region ---- Core Imports ----
-import React from "react";
+import React, { useMemo } from "react";
 
 // #endregion
 
@@ -27,6 +27,7 @@ import {
   ZRUOrientationE,
 } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { isZNonEmptyString } from "zaions-tool-kit";
 
 interface ZRUSelectI {
   children?: React.ReactNode;
@@ -44,6 +45,9 @@ interface ZRUSelectI {
   open?: boolean;
   required?: boolean;
   value?: string;
+  isTouched?: boolean;
+  errorMessage?: string;
+  infoText?: string;
   onOpenChange?(open: boolean): void;
   onValueChange?(value: string): void;
 
@@ -68,6 +72,16 @@ interface ZRUSelectI {
 // #endregion
 
 const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
+  const _isError = useMemo(
+    () =>
+      Array.isArray(props?.errorMessage)
+        ? props?.errorMessage?.length > 0
+        : typeof props?.errorMessage === "string"
+        ? isZNonEmptyString(props?.errorMessage)
+        : false,
+    [props?.errorMessage]
+  );
+
   return (
     <ZRUBox
       className={ZClassNames(props?.className, {
@@ -119,6 +133,32 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
           })}
         </Select.Content>
       </Select.Root>
+
+      {/* Error */}
+      {props?.isTouched && _isError ? (
+        <ZRUText
+          as={ZRUTextAsE.span}
+          size="1"
+          color={ZRUColorE.tomato}
+          className="font-medium"
+        >
+          {Array.isArray(props?.errorMessage)
+            ? props?.errorMessage[0]
+            : props?.errorMessage}
+        </ZRUText>
+      ) : null}
+
+      {/* Info */}
+      {!props?.isTouched && isZNonEmptyString(props?.infoText) ? (
+        <ZRUText
+          as={ZRUTextAsE.span}
+          size="1"
+          color={ZRUColorE.gold}
+          className="font-medium"
+        >
+          {props?.infoText}
+        </ZRUText>
+      ) : null}
     </ZRUBox>
   );
 };

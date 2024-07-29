@@ -37,3 +37,6 @@ export { default as ZSpinner } from './ZRUSpinner/index';
 export { default as ZLink } from './ZRULink/index';
 export { default as ZAvatar } from './ZRUAvatar/index';
 export { default as ZDataList } from './ZRUDataList/index';
+export { default as ZRadioCardsGroup } from './ZRURadioCards';
+export { default as ZRadioCardsItem } from './ZRURadioCards/Item';
+export { default as ZSlider } from './ZRUSlider';

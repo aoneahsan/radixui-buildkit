@@ -25,9 +25,13 @@ import {
   type ZRUSelectContentPositionE,
   ZRUTextAsE,
   ZRUOrientationE,
+  ZRUAlignE,
+  ZRUJustifyE,
 } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import { isZNonEmptyString } from "zaions-tool-kit";
+import { ZButton, ZFlex } from "..";
+import { ZRUButtonI } from "@src/types";
 
 interface ZRUSelectI {
   children?: React.ReactNode;
@@ -68,6 +72,9 @@ interface ZRUSelectI {
   options?: Array<ZRUSelectValueI>;
   labelOrientation?: ZRUOrientationE;
   position?: "item-aligned" | "popper";
+
+  showLabelBtn?: boolean;
+  labelBtnProps?: ZRUButtonI;
 }
 // #endregion
 
@@ -89,27 +96,42 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
           props?.labelOrientation === ZRUOrientationE.horizontal,
       })}
     >
-      {props?.label !== undefined && props?.label?.trim()?.length > 0 ? (
-        <ZRUText
-          as={ZRUTextAsE.label}
-          size="1"
-          className={ZClassNames("block", props?.labelClassName)}
-        >
-          {props?.label}
-          {props?.required ? (
-            <ZRUText
-              as={ZRUTextAsE.span}
-              className="ms-1"
-              color={ZRUColorE.tomato}
-            >
-              *
-            </ZRUText>
-          ) : null}
-        </ZRUText>
-      ) : null}
+      <ZFlex align={ZRUAlignE.center} justify={ZRUJustifyE.between}>
+        {props?.label && props?.label?.trim()?.length > 0 ? (
+          <ZRUText
+            as={ZRUTextAsE.label}
+            size="1"
+            className={ZClassNames("text-base block", props?.labelClassName)}
+          >
+            {props?.label}
+            {props?.required ? (
+              <ZRUText
+                as={ZRUTextAsE.span}
+                className="ms-1"
+                color={ZRUColorE.tomato}
+              >
+                *
+              </ZRUText>
+            ) : null}
+          </ZRUText>
+        ) : null}
+
+        {props?.showLabelBtn ? (
+          <ZButton
+            {...props?.labelBtnProps}
+            size={props?.labelBtnProps?.size ?? "1"}
+            className={ZClassNames(
+              "mb-1 me-2",
+              props?.labelBtnProps?.className
+            )}
+          >
+            {props?.labelBtnProps?.children}
+          </ZButton>
+        ) : null}
+      </ZFlex>
 
       <Select.Root
-        size={props.size}
+        size={props.size ?? "3"}
         name={props.name}
         open={props.open}
         value={props.value}
@@ -121,9 +143,12 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
         onOpenChange={props.onOpenChange}
         onValueChange={props.onValueChange}
       >
-        <Select.Trigger {...props?.trigger} />
+        <Select.Trigger {...props?.trigger} className="w-full" />
 
-        <Select.Content {...props?.content} position={props?.position}>
+        <Select.Content
+          {...props?.content}
+          position={props?.position ?? "popper"}
+        >
           {props?.options?.map((option, index) => {
             return (
               <Select.Item value={option?.value} key={index}>

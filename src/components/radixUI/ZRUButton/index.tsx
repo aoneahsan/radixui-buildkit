@@ -10,30 +10,8 @@ import { ZClassNames } from "zaions-react-tool-kit";
 // #endregion
 
 // #region ---- Types Imports ----
-import {
-  ZRUVariantE,
-  type ZRURadiusE,
-  type ZRUSizeT,
-  type ZRUColorE,
-  type ZRUMarginI,
-} from "@src/types/radixUI";
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { ZRUButtonI } from "@src/types";
 
-interface ZRUButtonI extends ZRUMarginI {
-  children?: React.ReactNode;
-  className?: string;
-  style?: Record<string, unknown>;
-  asChild?: boolean;
-  size?: Responsive<ZRUSizeT>;
-  variant?: ZRUVariantE;
-  color?: ZRUColorE;
-  highContrast?: boolean;
-  radius?: ZRURadiusE;
-  loading?: boolean;
-  disabled?: boolean;
-  type?: "button" | "submit" | "reset";
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
 // #endregion
 
 /**

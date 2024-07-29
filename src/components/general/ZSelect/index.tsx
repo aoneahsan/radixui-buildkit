@@ -59,7 +59,7 @@ export const ZRSelect: React.FC<ZRSelectI> = ({
       {isZNonEmptyString(label) ? (
         <ZText
           as={ZRUTextAsE.label}
-          className={ZClassNames(labelClassName, "maxSm:!text-sm")}
+          className={ZClassNames(labelClassName, "text-base maxSm:!text-sm")}
         >
           {label}
           {required ? (
@@ -87,7 +87,7 @@ export const ZRSelect: React.FC<ZRSelectI> = ({
         isSearchable={isSearchable}
         options={options}
         value={value}
-        className={selectClassName}
+        className={ZClassNames(selectClassName, "w-full")}
         classNamePrefix={classNamePrefix}
         onFocus={onFocus}
         onBlur={onBlur}

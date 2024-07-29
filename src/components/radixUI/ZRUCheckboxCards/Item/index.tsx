@@ -1,10 +1,10 @@
 // #region ---- Core Imports ----
-import React from 'react';
+import React from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
-import { CheckboxCards } from '@radix-ui/themes';
+import { CheckboxCards } from "@radix-ui/themes";
 
 // #endregion
 

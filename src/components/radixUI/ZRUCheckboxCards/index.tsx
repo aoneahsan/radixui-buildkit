@@ -8,10 +8,6 @@ import { CheckboxCards } from "@radix-ui/themes";
 
 // #endregion
 
-// #region ---- Custom Imports ----
-
-// #endregion
-
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import { type ZRUColorE, type ZRUCommonVariantE } from "@src/types/radixUI";

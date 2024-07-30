@@ -1,6 +1,7 @@
 import type { ActionMeta, GroupBase, MultiValue, OptionsOrGroups, PropsValue, SingleValue, StylesConfig } from "react-select";
 import type { ZRSelectOptions } from "..";
 import type { SelectComponents } from "react-select/dist/declarations/src/components";
+import { ZRUButtonI } from "@src/types/radixUI/components";
 
 export type ZRSelectI = {
     className?: string;
@@ -26,9 +27,12 @@ export type ZRSelectI = {
     style?: React.CSSProperties;
     infoText?: string;
     styles?: StylesConfig<ZRSelectOptions, boolean, GroupBase<ZRSelectOptions>>;
+    menuIsOpen?: boolean
     components?: Partial<
         SelectComponents<ZRSelectOptions, boolean, GroupBase<ZRSelectOptions>>
     >;
+    showLabelBtn?: boolean;
+    labelBtnProps?: ZRUButtonI;
 } & (
         | {
             isMulti?: false;

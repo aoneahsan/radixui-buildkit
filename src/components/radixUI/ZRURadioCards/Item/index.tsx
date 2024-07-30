@@ -9,13 +9,8 @@ import { RadioCards } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-interface ZRURadioCardsItemI {
-  value: string;
-  children?: React.ReactNode;
-  className?: string;
-  style?: Record<string, unknown>;
-  asChild?: boolean;
-}
+import { ZRURadioCardsItemI } from "@src/types";
+
 // #endregion
 
 /**

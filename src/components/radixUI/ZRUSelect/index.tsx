@@ -5,13 +5,13 @@ import React, { useMemo } from "react";
 
 // #region ---- Packages Imports ----
 import { Select } from "@radix-ui/themes";
+import { ZClassNames } from "zaions-react-tool-kit";
+import { isZNonEmptyString } from "zaions-tool-kit";
 
 // #endregion
 
 // #region ---- Custom Imports ----
-import ZRUBox from "../ZRUBox";
-import ZRUText from "../ZRUText";
-import { ZClassNames } from "zaions-react-tool-kit";
+import { ZBox, ZButton, ZFlex, ZText } from "..";
 
 // #endregion
 
@@ -29,8 +29,6 @@ import {
   ZRUJustifyE,
 } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { isZNonEmptyString } from "zaions-tool-kit";
-import { ZButton, ZFlex } from "..";
 import { ZRUButtonI } from "@src/types";
 
 interface ZRUSelectI {
@@ -90,7 +88,7 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
   );
 
   return (
-    <ZRUBox
+    <ZBox
       className={ZClassNames(props?.className, {
         "flex items-center gap-1":
           props?.labelOrientation === ZRUOrientationE.horizontal,
@@ -98,22 +96,22 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
     >
       <ZFlex align={ZRUAlignE.center} justify={ZRUJustifyE.between}>
         {props?.label && props?.label?.trim()?.length > 0 ? (
-          <ZRUText
+          <ZText
             as={ZRUTextAsE.label}
             size="1"
             className={ZClassNames("text-base block", props?.labelClassName)}
           >
             {props?.label}
             {props?.required ? (
-              <ZRUText
+              <ZText
                 as={ZRUTextAsE.span}
                 className="ms-1"
                 color={ZRUColorE.tomato}
               >
                 *
-              </ZRUText>
+              </ZText>
             ) : null}
-          </ZRUText>
+          </ZText>
         ) : null}
 
         {props?.showLabelBtn ? (
@@ -161,7 +159,7 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
 
       {/* Error */}
       {props?.isTouched && _isError ? (
-        <ZRUText
+        <ZText
           as={ZRUTextAsE.span}
           size="1"
           color={ZRUColorE.tomato}
@@ -170,21 +168,21 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
           {Array.isArray(props?.errorMessage)
             ? props?.errorMessage[0]
             : props?.errorMessage}
-        </ZRUText>
+        </ZText>
       ) : null}
 
       {/* Info */}
       {!props?.isTouched && isZNonEmptyString(props?.infoText) ? (
-        <ZRUText
+        <ZText
           as={ZRUTextAsE.span}
           size="1"
           color={ZRUColorE.gold}
           className="font-medium"
         >
           {props?.infoText}
-        </ZRUText>
+        </ZText>
       ) : null}
-    </ZRUBox>
+    </ZBox>
   );
 };
 

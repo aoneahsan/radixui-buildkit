@@ -7,13 +7,18 @@ import React, { useMemo } from "react";
 import Select, { type ActionMeta, type MultiValue } from "react-select";
 import { isZNonEmptyString } from "zaions-tool-kit";
 import { ZClassNames } from "zaions-react-tool-kit";
-import { ZBox, ZText } from "@src/components/radixUI";
+import { ZBox, ZButton, ZFlex, ZText } from "@src/components/radixUI";
 
 // #endregion
 
 // #region ---- Types Imports ----
 import type { ZRSelectOptions } from "@src/types/general";
-import { ZRUColorE, ZRUTextAsE } from "@src/types/radixUI";
+import {
+  ZRUAlignE,
+  ZRUColorE,
+  ZRUJustifyE,
+  ZRUTextAsE,
+} from "@src/types/radixUI";
 import type { ZRSelectI } from "@src/types/general/ZRSelect";
 
 // #endregion
@@ -40,6 +45,9 @@ export const ZRSelect: React.FC<ZRSelectI> = ({
   errorMessage,
   infoText,
   selectClassName,
+  menuIsOpen,
+  showLabelBtn,
+  labelBtnProps,
   onFocus,
   onBlur,
   onChange,
@@ -56,23 +64,36 @@ export const ZRSelect: React.FC<ZRSelectI> = ({
 
   return (
     <ZBox className={className}>
-      {isZNonEmptyString(label) ? (
-        <ZText
-          as={ZRUTextAsE.label}
-          className={ZClassNames(labelClassName, "text-base maxSm:!text-sm")}
-        >
-          {label}
-          {required ? (
-            <ZText
-              as={ZRUTextAsE.span}
-              className="ms-1"
-              color={ZRUColorE.tomato}
-            >
-              *
-            </ZText>
-          ) : null}
-        </ZText>
-      ) : null}
+      <ZFlex align={ZRUAlignE.center} justify={ZRUJustifyE.between}>
+        {label && label?.trim()?.length > 0 ? (
+          <ZText
+            as={ZRUTextAsE.label}
+            size="1"
+            className={ZClassNames("text-base block", labelClassName)}
+          >
+            {label}
+            {required ? (
+              <ZText
+                as={ZRUTextAsE.span}
+                className="ms-1"
+                color={ZRUColorE.tomato}
+              >
+                *
+              </ZText>
+            ) : null}
+          </ZText>
+        ) : null}
+
+        {showLabelBtn ? (
+          <ZButton
+            {...labelBtnProps}
+            size={labelBtnProps?.size ?? "1"}
+            className={ZClassNames("mb-1 me-2", labelBtnProps?.className)}
+          >
+            {labelBtnProps?.children}
+          </ZButton>
+        ) : null}
+      </ZFlex>
 
       <Select
         styles={styles}
@@ -87,6 +108,7 @@ export const ZRSelect: React.FC<ZRSelectI> = ({
         isSearchable={isSearchable}
         options={options}
         value={value}
+        menuIsOpen={menuIsOpen}
         className={ZClassNames(selectClassName, "w-full")}
         classNamePrefix={classNamePrefix}
         onFocus={onFocus}

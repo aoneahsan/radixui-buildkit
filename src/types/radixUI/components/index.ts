@@ -1,7 +1,8 @@
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUColorE, ZRUCommonVariantE, ZRUMarginI, ZRURadiusE, ZRUSizeT, ZRUVariantE } from "..";
+import type { ZRUAsE, ZRUBoxDisplayE, ZRUColorE, ZRUCommonVariantE, ZRUMarginI, ZRURadiusE, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
+import { ZCanI } from "@src/types/general/ZCan";
 
-export interface ZRUButtonI extends ZRUMarginI {
+export interface ZRUButtonI extends ZRUMarginI, Omit<ZCanI, 'children'> {
     children?: React.ReactNode;
     className?: string;
     style?: Record<string, unknown>;
@@ -40,4 +41,14 @@ export interface ZRURadioCardsItemI {
     className?: string;
     style?: Record<string, unknown>;
     asChild?: boolean;
+}
+
+export interface ZRUBoxI extends ZRUStyleI, Omit<ZCanI, 'children'> {
+    children?: React.ReactNode;
+    asChild?: boolean;
+    className?: string;
+    style?: Record<string, unknown>;
+    as?: ZRUAsE;
+    display?: Responsive<ZRUBoxDisplayE>;
+    onClick?: () => void;
 }

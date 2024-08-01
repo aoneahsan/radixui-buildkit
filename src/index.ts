@@ -9,4 +9,5 @@ export * from './components';
 export * from './higherOrderComponents';
 export * from './pages';
 export * from './store';
+export * from './data';
 import './style.css'

@@ -18,11 +18,11 @@ import { ZBox, ZButton, ZFlex, ZText } from "..";
 // #region ---- Types Imports ----
 import {
   ZRUColorE,
+  ZRUSelectContentPositionE,
   type ZRUBasicVariantE,
   type ZRURadiusE,
   type ZRUMarginI,
   type ZRUSelectValueI,
-  type ZRUSelectContentPositionE,
   ZRUTextAsE,
   ZRUOrientationE,
   ZRUAlignE,
@@ -50,6 +50,7 @@ interface ZRUSelectI {
   isTouched?: boolean;
   errorMessage?: string;
   infoText?: string;
+  triggerClassName?: string;
   onOpenChange?(open: boolean): void;
   onValueChange?(value: string): void;
 
@@ -69,7 +70,7 @@ interface ZRUSelectI {
 
   options?: Array<ZRUSelectValueI>;
   labelOrientation?: ZRUOrientationE;
-  position?: "item-aligned" | "popper";
+  position?: ZRUSelectContentPositionE;
 
   showLabelBtn?: boolean;
   labelBtnProps?: ZRUButtonI;
@@ -141,11 +142,14 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
         onOpenChange={props.onOpenChange}
         onValueChange={props.onValueChange}
       >
-        <Select.Trigger {...props?.trigger} className="w-full" />
+        <Select.Trigger
+          {...props?.trigger}
+          className={props.triggerClassName}
+        />
 
         <Select.Content
           {...props?.content}
-          position={props?.position ?? "popper"}
+          position={props?.position ?? ZRUSelectContentPositionE.popper}
         >
           {props?.options?.map((option, index) => {
             return (

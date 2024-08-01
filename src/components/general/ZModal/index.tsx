@@ -9,8 +9,8 @@ import { Dialog } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Custom Imports ----
-import { ZDialog, ZFlex } from "@src/components/radixUI";
-import { ZRUAlignE, ZRUJustifyE } from "@src/types";
+import { ZDialog, ZFlex, ZText } from "@src/components/radixUI";
+import { ZRUAlignE, ZRUColorE, ZRUJustifyE } from "@src/types";
 
 // #endregion
 
@@ -24,6 +24,7 @@ import { ZRUAlignE, ZRUJustifyE } from "@src/types";
 
 // #region ---- Images Imports ----
 import { ZCloseSvg } from "@src/assets";
+import { ZClassNames } from "zaions-react-tool-kit";
 
 // #endregion
 interface ZModalI {
@@ -31,6 +32,7 @@ interface ZModalI {
   open?: boolean;
   className?: string;
   title?: string;
+  disableCrossBtn?: boolean;
   onOpenChange?: (open: boolean) => void;
   crossOnClick?: React.MouseEventHandler<SVGSVGElement>;
 }
@@ -39,6 +41,7 @@ const ZModal: React.FC<ZModalI> = ({
   children,
   className,
   open,
+  disableCrossBtn = false,
   title = "Title here",
   onOpenChange,
   crossOnClick,
@@ -52,7 +55,15 @@ const ZModal: React.FC<ZModalI> = ({
       >
         <Dialog.Title className="text-[1.7rem] mb-0">{title}</Dialog.Title>
 
-        <ZCloseSvg className="w-6 h-6 cursor-pointer" onClick={crossOnClick} />
+        <ZText color={disableCrossBtn ? ZRUColorE.gray : undefined}>
+          <ZCloseSvg
+            className={ZClassNames("w-6 h-6 text-inherit", {
+              "cursor-not-allowed": disableCrossBtn,
+              "cursor-pointer": !disableCrossBtn,
+            })}
+            onClick={(e) => !disableCrossBtn && crossOnClick && crossOnClick(e)}
+          />
+        </ZText>
       </ZFlex>
       {children}
     </ZDialog>

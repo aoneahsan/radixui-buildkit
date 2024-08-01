@@ -9,24 +9,19 @@ import { Box } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Custom Imports ----
+import ZCan from "@src/components/general/ZCan";
 
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  type ZRUAsE,
-  type ZRUBoxDisplayE,
-  type ZRUStyleI,
-} from "@src/types/radixUI";
-import ZCan from "@src/components/general/ZCan";
-import { ZRUBoxI } from "@src/types";
+import type { ZRUBoxI } from "@src/types";
 // #endregion
 
 const ZRUBox: React.FC<ZRUBoxI> = (props) => {
   return (
     <ZCan
-      havePermissions={props?.havePermissions}
+      role={props?.role}
+      permissions={props?.permissions}
       checkMode={props?.checkMode}
       returnPermissionDeniedView={props?.returnPermissionDeniedView}
     >

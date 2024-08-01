@@ -1,7 +1,13 @@
 import { atom } from "recoil";
-import type { PermissionEnum } from "zaions-tool-kit";
+import type { PermissionEnum, RoleEnum } from "zaions-tool-kit";
 
-export const ZUserPermissionsRStateAtom = atom<Array<PermissionEnum> | null>(({
-    key: 'ZUserPermissionsRStateAtom_key',
-    default: null
+export const ZUserRolesPermissionsRStateAtom = atom<{
+    permissions: Array<PermissionEnum> | null
+    role: RoleEnum | null
+}>(({
+    key: 'ZUserRolesPermissionsRStateAtom_key',
+    default: {
+        permissions: null,
+        role: null
+    }
 }))

@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
 export * from './ZRSelect';
+export * from './ZCan';
+export * from './ZPrizeInput';
 
 export type ZGenericObject<T> = Record<string, T>;
 

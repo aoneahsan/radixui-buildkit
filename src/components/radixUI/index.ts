@@ -41,3 +41,4 @@ export { default as ZRadioCardsGroup } from './ZRURadioCards';
 export { default as ZRadioCardsItem } from './ZRURadioCards/Item';
 export { default as ZRadioCardList } from './ZRURadioCards/List';
 export { default as ZSlider } from './ZRUSlider';
+export { default as ZSkeleton } from './ZRUSkeleton';

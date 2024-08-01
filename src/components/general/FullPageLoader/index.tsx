@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./styles.css";
-import ZRUFlex from "../../radixUI/ZRUFlex";
-import { ZRUAlignE, ZRUJustifyE } from "@src/types";
-import ZRUSpinner from "../../radixUI/ZRUSpinner";
+import { ZBox, ZSpinner } from "@src/components/radixUI";
+import { ZClassNames } from "zaions-react-tool-kit";
+import { useThemeContext } from "@radix-ui/themes";
 
 const FullPageLoader: React.FC = () => {
+  const radixThemeContext = useThemeContext();
+  const isDarkMode = useMemo(
+    () => radixThemeContext.appearance === "dark",
+    [radixThemeContext.appearance]
+  );
+
   return (
-    <ZRUFlex
-      justify={ZRUJustifyE.center}
-      align={ZRUAlignE.center}
-      height="100%"
-      minHeight="100vh"
-    >
-      <ZRUSpinner className="spinner" size="3" />
-    </ZRUFlex>
+    <ZBox className="absolute top-0 left-0 z-50 flex justify-center w-full h-full pt-16">
+      <ZBox
+        className={ZClassNames("absolute top-0 left-0 w-full h-full", {
+          "bg-indigo5/20": isDarkMode,
+          "bg-gray12/30": !isDarkMode,
+        })}
+      />
+      <ZSpinner
+        className={ZClassNames("w-8 h-8", {
+          "text-indigo12": !isDarkMode,
+        })}
+      />
+    </ZBox>
   );
 };
 export default FullPageLoader;

@@ -1,0 +1,1 @@
+export const defaultCurrency = { value: 'USD', label: 'United States dollar', symbol: '$' }

@@ -1,5 +1,5 @@
 // #region ---- Core Imports ----
-import React from "react";
+import React, { useCallback } from "react";
 
 // #endregion
 
@@ -9,7 +9,7 @@ import { useRecoilValue } from "recoil";
 // #endregion
 
 // #region ---- Custom Imports ----
-import { ZUserPermissionsRStateAtom } from "@src/store/user";
+import { ZUserRolesPermissionsRStateAtom } from "@src/store/user";
 
 // #endregion
 
@@ -18,25 +18,53 @@ import type { PermissionEnum } from "zaions-tool-kit";
 import { type ZCanI, ZPermissionCheckModeEnum } from "@src/types/general/ZCan";
 // #endregion
 
+/**
+ * ZCan Component
+ * This component checks the user's permissions and role to conditionally render its children.
+ *
+ * @param {React.ReactNode} children - The content to be rendered if the user has the required permissions and role.
+ * @param {PermissionEnum[]} [permissions=[]] - An array of permissions to check against the user's permissions.
+ * @param {boolean} [returnPermissionDeniedView=false] - If true, render a permission denied view when the user lacks permissions.
+ * @param {ZPermissionCheckModeEnum} [checkMode=ZPermissionCheckModeEnum.every] - Mode to check permissions: 'every' or 'any'.
+ * @param {RoleEnum | null} [role=null] - The role to check against the user's role.
+ *
+ * @returns {React.ReactElement | null} - Returns the children if the user has the required permissions and role, otherwise returns null or a permission denied view.
+ */
 const ZCan: React.FC<ZCanI> = ({
   children,
-  havePermissions = [],
-  returnPermissionDeniedView = false,
+  role = null,
+  permissions = [],
   checkMode = ZPermissionCheckModeEnum.every,
-}) => {
-  const userPermissions = useRecoilValue(ZUserPermissionsRStateAtom);
+  returnPermissionDeniedView = false,
+}): React.ReactElement | null => {
+  const { permissions: userPermissions, role: userRole } = useRecoilValue(
+    ZUserRolesPermissionsRStateAtom
+  );
 
-  const hasPermission = (permission: PermissionEnum) =>
-    userPermissions?.includes(permission);
+  // Check if the user has a specific permission
+  const hasPermission = useCallback(
+    (permission: PermissionEnum) => userPermissions?.includes(permission),
+    [userPermissions]
+  );
 
-  const hasRequiredPermission = () => {
-    if (checkMode === ZPermissionCheckModeEnum.every) {
-      return havePermissions?.every(hasPermission);
+  // Check if the user has a specific role
+  const hasRole = useCallback(
+    () => role === null || userRole === role,
+    [role, userRole]
+  );
+
+  // Determine if the user has the required permissions based on the check mode
+  const hasRequiredPermission = useCallback(() => {
+    if (!permissions || permissions?.length === 0) {
+      return true;
     }
-    return havePermissions?.some(hasPermission);
-  };
+    return checkMode === ZPermissionCheckModeEnum.every
+      ? permissions.every(hasPermission)
+      : permissions.some(hasPermission);
+  }, [permissions, checkMode, hasPermission]);
 
-  if (havePermissions?.length === 0 || hasRequiredPermission()) {
+  // Render children if the user has the required permissions and role
+  if (hasRequiredPermission() && hasRole()) {
     return <>{children}</>;
   }
 

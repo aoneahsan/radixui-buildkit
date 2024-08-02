@@ -96,7 +96,7 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
       })}
     >
       <ZFlex align={ZRUAlignE.center} justify={ZRUJustifyE.between}>
-        {props?.label && props?.label?.trim()?.length > 0 ? (
+        {isZNonEmptyString(props?.label) ? (
           <ZText
             as={ZRUTextAsE.label}
             size="1"

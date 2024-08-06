@@ -5,6 +5,7 @@ import { ZRUButtonI } from "@src/types/radixUI/components";
 
 export type ZRSelectI = {
     className?: string;
+    loading?: boolean
     labelClassName?: string;
     label?: string;
     selectClassName?: string;
@@ -21,7 +22,7 @@ export type ZRSelectI = {
     errorMessage?: string;
     value?: PropsValue<ZRSelectOptions>;
     defaultValue?: PropsValue<ZRSelectOptions>;
-    options: OptionsOrGroups<ZRSelectOptions, GroupBase<ZRSelectOptions>>;
+    options?: OptionsOrGroups<ZRSelectOptions, GroupBase<ZRSelectOptions>>;
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
     onFocus?: React.FocusEventHandler<HTMLInputElement>;
     style?: React.CSSProperties;

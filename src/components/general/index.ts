@@ -9,3 +9,4 @@ export { default as ZRSelect } from './ZSelect';
 export { default as ZPrizeInput } from './ZPrizeInput';
 export { default as ZFileDropUploader } from './ZFileDropUploader';
 export { default as ZImage } from './ZImage';
+export { default as ZRCSelect } from './ZRCSelect';

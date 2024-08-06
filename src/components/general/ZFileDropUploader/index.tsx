@@ -18,6 +18,7 @@ import {
   ZButton,
   ZCard,
   ZFlex,
+  ZSpinner,
   ZText,
 } from "@src/components/radixUI";
 
@@ -36,6 +37,8 @@ interface ZFileDropUploaderI {
   multiple?: boolean;
   noClick?: boolean;
   required?: boolean;
+  loading?: boolean;
+  loadingText?: string;
   noDrag?: boolean;
   isTouched?: boolean;
   errorMessage?: string;
@@ -80,6 +83,8 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   disabled,
   noKeyboard,
   localUrl,
+  loading,
+  loadingText = "Loading File...",
   onChange,
   onFileDialogCancel,
   onFileDialogOpen,
@@ -121,10 +126,10 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
       ) : null}
       <Dropzone
         multiple={multiple}
-        noClick={disabled ?? noClick}
+        noClick={disabled ?? loading ?? noClick}
         accept={accept}
-        noDrag={disabled ?? noDrag}
-        noKeyboard={disabled ?? noKeyboard}
+        noDrag={disabled ?? loading ?? noDrag}
+        noKeyboard={disabled ?? loading ?? noKeyboard}
         onFileDialogCancel={onFileDialogCancel}
         onFileDialogOpen={onFileDialogOpen}
         onDragEnter={onDragEnter}
@@ -133,7 +138,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
         onDropRejected={onDropRejected}
         onDragLeave={onDragLeave}
         onDrop={(acceptedFiles, fileRejections, event) => {
-          if (!disabled) {
+          if (!disabled || !loading) {
             const file =
               typeof acceptedFiles[0] === "object" ? acceptedFiles[0] : null;
             let url = "";
@@ -181,14 +186,19 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
                     />
                   ) : (
                     <>
-                      <FilePlusIcon className="w-10 h-10" />
+                      {loading ? (
+                        <ZSpinner size="3" />
+                      ) : (
+                        <FilePlusIcon className="w-10 h-10" />
+                      )}
                       <ZText className="font-medium">
-                        Drag & drop your file here
+                        {loading ? loadingText : "Drag & drop your file here"}
                       </ZText>
                       <ZButton
                         color={ZRUColorE.gold}
                         onClick={() => noClick && open()}
-                        disabled={disabled}
+                        disabled={loading || disabled}
+                        type="button"
                       >
                         Choose file
                       </ZButton>

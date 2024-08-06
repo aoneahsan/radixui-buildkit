@@ -17,6 +17,15 @@ export enum ZRUCommonVariantE {
 }
 
 /**
+ * Enum representing the variant of radix Callout elements.
+ */
+export enum ZRUCalloutVariantE {
+  surface = 'surface',
+  soft = 'soft',
+  outline = 'outline',
+}
+
+/**
  * Enum representing the variant of radix ui elements.
  */
 export enum ZRUBasicVariantE {

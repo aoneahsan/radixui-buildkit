@@ -9,6 +9,7 @@ import { Avatar } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Custom Imports ----
+import { ZSpinner } from "..";
 
 // #endregion
 
@@ -25,6 +26,7 @@ interface ZRUAvatarI {
   radius?: ZRURadiusE;
   variant?: ZRUAvatarVariantE;
   fallback: NonNullable<React.ReactNode>;
+  loading?: boolean;
   size?: Responsive<"1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9">;
 }
 // #endregion
@@ -32,13 +34,31 @@ interface ZRUAvatarI {
 /**
  * A customized Radix Avatar component.
  */
-const ZRUAvatar: React.FC<ZRUAvatarI> = (props) => {
+const ZRUAvatar: React.FC<ZRUAvatarI> = ({
+  className,
+  src,
+  style,
+  asChild,
+  color = ZRUColorE.gray,
+  highContrast,
+  radius = ZRURadiusE.full,
+  variant = ZRUAvatarVariantE.solid,
+  fallback,
+  size,
+  loading,
+}) => {
   return (
     <Avatar
-      {...props}
-      variant={props?.variant ?? ZRUAvatarVariantE.solid}
-      radius={props?.radius ?? ZRURadiusE.full}
-      color={props?.color ?? ZRUColorE.gray}
+      className={className}
+      src={src}
+      style={style}
+      asChild={asChild}
+      highContrast={highContrast}
+      fallback={loading ? <ZSpinner size="3" /> : fallback}
+      size={size}
+      variant={variant}
+      radius={radius}
+      color={color}
     />
   );
 };

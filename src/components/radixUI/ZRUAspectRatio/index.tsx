@@ -8,16 +8,9 @@ import { AspectRatio } from "@radix-ui/themes";
 
 // #endregion
 
-// #region ---- Custom Imports ----
-
-// #endregion
-
 // #region ---- Types Imports ----
-interface ZRUAspectRatioI {
-  ratio?: number;
-  className?: string;
-  children?: React.ReactNode;
-}
+import type { ZRUAspectRatioI } from "@src/types";
+
 // #endregion
 
 const ZRUAspectRatio: React.FC<ZRUAspectRatioI> = (props) => {

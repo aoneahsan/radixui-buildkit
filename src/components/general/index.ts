@@ -8,3 +8,4 @@ export { default as ZModal } from './ZModal';
 export { default as ZRSelect } from './ZSelect';
 export { default as ZPrizeInput } from './ZPrizeInput';
 export { default as ZFileDropUploader } from './ZFileDropUploader';
+export { default as ZImage } from './ZImage';

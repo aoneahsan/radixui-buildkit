@@ -1,5 +1,5 @@
 // #region ---- Core Imports ----
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 // #endregion
 
@@ -44,9 +44,10 @@ interface ZFileDropUploaderI {
   ratio?: number;
   labelClassName?: string;
   label?: string;
+  localUrl?: string | null;
   disabled?: boolean;
   noKeyboard?: boolean;
-  onChange?: (files: File[]) => void;
+  // onChange?: (files: File[]) => void;
   onFileDialogCancel?: () => void;
   onFileDialogOpen?: () => void;
   onDragEnter?: React.DragEventHandler<HTMLElement>;
@@ -54,6 +55,12 @@ interface ZFileDropUploaderI {
   onDragOver?: React.DragEventHandler<HTMLElement>;
   onDropAccepted?: <T extends File>(files: T[], event: DropEvent) => void;
   onDropRejected?: (fileRejections: FileRejection[], event: DropEvent) => void;
+  onChange?: <T extends File>(params: {
+    acceptedFiles: T[];
+    fileRejections: FileRejection[];
+    event: DropEvent;
+    localUrl: string;
+  }) => void;
 }
 // #endregion
 
@@ -72,6 +79,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   infoText,
   disabled,
   noKeyboard,
+  localUrl,
   onChange,
   onFileDialogCancel,
   onFileDialogOpen,
@@ -81,7 +89,6 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   onDropAccepted,
   onDropRejected,
 }) => {
-  const [localURl, setLocalUrl] = useState("");
   const _isError = useMemo(
     () =>
       Array.isArray(errorMessage)
@@ -125,15 +132,21 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
         onDropAccepted={onDropAccepted}
         onDropRejected={onDropRejected}
         onDragLeave={onDragLeave}
-        onDrop={(acceptedFiles) => {
+        onDrop={(acceptedFiles, fileRejections, event) => {
           if (!disabled) {
             const file =
               typeof acceptedFiles[0] === "object" ? acceptedFiles[0] : null;
+            let url = "";
             if (file) {
-              setLocalUrl(() => URL.createObjectURL(file));
+              url = URL.createObjectURL(file);
             }
             if (onChange !== undefined) {
-              onChange(acceptedFiles);
+              onChange({
+                acceptedFiles,
+                fileRejections,
+                event,
+                localUrl: url,
+              });
             }
           }
         }}
@@ -161,9 +174,9 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
                   {...getRootProps()}
                 >
                   <input {...getInputProps()} />
-                  {isZNonEmptyString(localURl) ? (
+                  {isZNonEmptyString(localUrl) ? (
                     <img
-                      src={localURl}
+                      src={localUrl ?? ""}
                       className="object-cover w-full h-full"
                     />
                   ) : (

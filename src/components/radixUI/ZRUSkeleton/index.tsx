@@ -13,18 +13,8 @@ import { Skeleton } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUSkeletonI {
-  children?: React.ReactNode;
-  className?: string;
-  loading?: boolean;
-  width?: Responsive<string>;
-  minWidth?: Responsive<string>;
-  maxWidth?: Responsive<string>;
-  height?: Responsive<string>;
-  minHeight?: Responsive<string>;
-  maxHeight?: Responsive<string>;
-}
+import type { ZRUSkeletonI } from "@src/types";
+
 // #endregion
 
 const ZRUSkeleton: React.FC<ZRUSkeletonI> = ({

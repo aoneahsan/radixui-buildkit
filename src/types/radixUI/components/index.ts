@@ -53,3 +53,20 @@ export interface ZRUBoxI extends ZRUStyleI, Omit<ZCanI, 'children'> {
     display?: Responsive<ZRUBoxDisplayE>;
     onClick?: () => void;
 }
+export interface ZRUAspectRatioI {
+    ratio?: number;
+    className?: string;
+    children?: React.ReactNode;
+}
+
+export interface ZRUSkeletonI {
+    children?: React.ReactNode;
+    className?: string;
+    loading?: boolean;
+    width?: Responsive<string>;
+    minWidth?: Responsive<string>;
+    maxWidth?: Responsive<string>;
+    height?: Responsive<string>;
+    minHeight?: Responsive<string>;
+    maxHeight?: Responsive<string>;
+}

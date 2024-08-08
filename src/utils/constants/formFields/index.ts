@@ -1,13 +1,14 @@
 import { RegisterFormFieldsEnum } from '@enums/formData';
+import { ZRUInputTypeE } from '@src/types';
 import { FormFieldType } from 'zaions-tool-kit';
 
 export const loginFormFields = {
 	[RegisterFormFieldsEnum.email]: {
-		type: FormFieldType.email,
+		type: ZRUInputTypeE.email,
 		placeholder: 'Email',
 	},
 	[RegisterFormFieldsEnum.password]: {
-		type: FormFieldType.password,
+		type: ZRUInputTypeE.password,
 		placeholder: 'Password',
 	},
 } as const;

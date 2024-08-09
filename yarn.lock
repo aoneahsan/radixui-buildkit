@@ -143,10 +143,10 @@
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/network@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@capacitor/network/-/network-6.0.1.tgz#36b32028e0456c37497fc8dd55c28ac872a60b57"
-  integrity sha512-j+C1khUchNVol3HQGOhHKRAQ3Sc4DumzF8YVJqbkAkfOMHLWr/9g2H/P61yzqEr5kcidpOgWbBwQugHRv7o+7g==
+"@capacitor/network@^6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@capacitor/network/-/network-6.0.2.tgz#f05320cc4ba9bf4030a225f6f56a7fcc2f68d006"
+  integrity sha512-c0aZb0vRodvUO7ugZdQfMXr7LHUgZSKaJcOfu53gwuxGuvrIUvqPvaog+GlNLp7SB4Iw74Js7cemnIqsR5yxzw==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
@@ -2927,10 +2927,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.4.8:
-  version "3.4.8"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.8.tgz#74fdfc085732c244ad9ca4ee0d539bc5dddd58fd"
-  integrity sha512-GkP17r9GQkxgZ9FKHJQEnjJuKBcbFhMFzKu5slmN6NjlCuFnYJMQ8N4AZ6VrUyiRXlDtPKHkesuQ/MS913Nvdg==
+tailwindcss@^3.4.9:
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.9.tgz#9e04cddce1924d530df62af37d3520f0e2a9d85e"
+  integrity sha512-1SEOvRr6sSdV5IDf9iC+NU4dhwdqzF4zKKq3sAbasUWHEM6lsMhX+eNN5gkPx1BvLFEnZQEUFbXnGj8Qlp83Pg==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
     arg "^5.0.2"
@@ -3225,6 +3225,16 @@ yn@3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
   integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
+
+zaions-react-tool-kit@*:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/zaions-react-tool-kit/-/zaions-react-tool-kit-0.0.5.tgz#64c2cde8fa6ec8dfbe4ca29c9f07ccaf51508a19"
+  integrity sha512-4bSGO4tSAamqbTCubsN1brunhcSsgs+2XV+N97S2WC+rIeKd+fPvg7j9blgmIaVIvxTiSv3Zvq8PzP+NvYtlnQ==
+
+zaions-tool-kit@*:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/zaions-tool-kit/-/zaions-tool-kit-0.0.8.tgz#143d0314c00c619f37c25df33715f41e73782e52"
+  integrity sha512-LTclzzGj2fz5IBJ46hO3jq1yZehbZ4fs/xJrxcO6x/6k+9AxshM8TcfJICt7zWZjuW3spqK0+e6TEsCpzhAcNg==
 
 zod@^3.23.8:
   version "3.23.8"

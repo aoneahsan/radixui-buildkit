@@ -1,5 +1,5 @@
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUAsE, ZRUBoxDisplayE, ZRUColorE, ZRUCommonVariantE, ZRUMarginI, ZRURadiusE, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
+import type { ZRUAsE, ZRUBoxDisplayE, ZRUColorE, ZRUCommonVariantE, ZRUInputTypeE, ZRUMarginI, ZRURadiusE, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
 import { ZCanI } from "@src/types/general/ZCan";
 import { CSSProperties } from "react";
 
@@ -70,3 +70,26 @@ export interface ZRUSkeletonI {
     minHeight?: Responsive<string>;
     maxHeight?: Responsive<string>;
 }
+
+export interface ZRUInputI {
+    children?: React.ReactNode;
+    className?: string;
+    inputClassName?: string;
+    labelClassName?: string;
+    style?: Record<string, unknown>;
+    value?: string | number;
+    disabled?: boolean;
+    required?: boolean;
+    placeholder?: string;
+    size?: Responsive<"1" | "2" | "3">;
+    color?: ZRUColorE;
+    radius?: ZRURadiusE;
+    isTouched?: boolean;
+    errorMessage?: string;
+    infoText?: string;
+    label?: string;
+    name?: string;
+    type?: ZRUInputTypeE;
+    onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    onBlur?: React.FocusEventHandler<HTMLInputElement>;
+};

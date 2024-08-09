@@ -18,40 +18,16 @@ import ZRUText from "../ZRUText";
 // #endregion
 
 // #region ---- Types Imports ----
-import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
   ZRUTextAsE,
   ZRUColorE,
-  type ZRURadiusE,
   ZRUInputTypeE,
   ZRUSideE,
   ZRUVariantE,
 } from "@src/types/radixUI";
 import ZRUInputSlot from "./Slot";
 import ZRUIconButton from "../ZRUIconButton";
-
-type ZRUInputI = {
-  children?: React.ReactNode;
-  className?: string;
-  inputClassName?: string;
-  labelClassName?: string;
-  style?: Record<string, unknown>;
-  value?: string | number;
-  disabled?: boolean;
-  required?: boolean;
-  placeholder?: string;
-  size?: Responsive<"1" | "2" | "3">;
-  color?: ZRUColorE;
-  radius?: ZRURadiusE;
-  isTouched?: boolean;
-  errorMessage?: string;
-  infoText?: string;
-  label?: string;
-  name?: string;
-  type?: ZRUInputTypeE;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-};
+import type { ZRUInputI } from "@src/types";
 
 // #endregion
 

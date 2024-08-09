@@ -27,6 +27,7 @@ interface IZRUCallout {
   content?: React.ReactNode;
   showIcon?: boolean;
   contentClassName?: string;
+  iconClassName?: string;
 }
 // #endregion
 
@@ -41,6 +42,7 @@ const ZRUCallout: React.FC<IZRUCallout> = ({
   className,
   showIcon = true,
   contentClassName,
+  iconClassName,
 }) => {
   return (
     <Callout.Root
@@ -52,7 +54,9 @@ const ZRUCallout: React.FC<IZRUCallout> = ({
       highContrast={highContrast}
     >
       {showIcon ? (
-        <Callout.Icon>{icon ?? <InfoCircledIcon />}</Callout.Icon>
+        <Callout.Icon className={iconClassName}>
+          {icon ?? <InfoCircledIcon />}
+        </Callout.Icon>
       ) : null}
       <Callout.Text className={contentClassName}>{content}</Callout.Text>
     </Callout.Root>

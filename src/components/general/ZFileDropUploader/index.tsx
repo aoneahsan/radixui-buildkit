@@ -33,6 +33,7 @@ import {
   ZRUTextAsE,
 } from "@src/types";
 interface ZFileDropUploaderI {
+  children?: React.ReactNode;
   className?: string;
   multiple?: boolean;
   noClick?: boolean;
@@ -69,6 +70,7 @@ interface ZFileDropUploaderI {
 
 const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   className,
+  children,
   multiple,
   noClick,
   accept,
@@ -157,6 +159,14 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
         }}
       >
         {({ getRootProps, getInputProps, open, isDragActive }) => {
+          // if (children) {
+          //   return (
+          //     <ZFlex className="flex-col" {...getRootProps()}>
+          //       <input {...getInputProps()} />
+          //       {children}
+          //     </ZFlex>
+          //   );
+          // } else {
           return (
             <ZCard
               className={ZClassNames("p-0", {
@@ -208,6 +218,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
               </ZAspectRatio>
             </ZCard>
           );
+          // }
         }}
       </Dropzone>
       {/* Error */}

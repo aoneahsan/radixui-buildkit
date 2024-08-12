@@ -7,7 +7,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import Dropzone, { DropEvent, FileRejection } from "react-dropzone";
 import { isZNonEmptyString } from "zaions-tool-kit";
 import { FilePlusIcon } from "@radix-ui/react-icons";
-import { ZClassNames, ZDropzoneAccept } from "zaions-react-tool-kit";
+import {
+  useZMediaQueryScale,
+  ZClassNames,
+  ZDropzoneAccept,
+} from "zaions-react-tool-kit";
 
 // #endregion
 
@@ -96,6 +100,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   onDropAccepted,
   onDropRejected,
 }) => {
+  const { isSmScale } = useZMediaQueryScale();
   const _isError = useMemo(
     () =>
       Array.isArray(errorMessage)
@@ -199,9 +204,18 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
                       {loading ? (
                         <ZSpinner size="3" />
                       ) : (
-                        <FilePlusIcon className="w-10 h-10" />
+                        <FilePlusIcon
+                          className={ZClassNames({
+                            "w-10 h-10": isSmScale,
+                            "w-5 h-5": !isSmScale,
+                          })}
+                        />
                       )}
-                      <ZText className="font-medium">
+                      <ZText
+                        className={ZClassNames("font-medium", {
+                          "text-xs": !isSmScale,
+                        })}
+                      >
                         {loading ? loadingText : "Drag & drop your file here"}
                       </ZText>
                       <ZButton
@@ -209,6 +223,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
                         onClick={() => noClick && open()}
                         disabled={loading || disabled}
                         type="button"
+                        size={isSmScale ? "2" : "1"}
                       >
                         Choose file
                       </ZButton>

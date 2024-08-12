@@ -24,7 +24,7 @@ import { ZRUAlignE, ZRUColorE, ZRUJustifyE } from "@src/types";
 
 // #region ---- Images Imports ----
 import { ZCloseSvg } from "@src/assets";
-import { ZClassNames } from "zaions-react-tool-kit";
+import { useZMediaQueryScale, ZClassNames } from "zaions-react-tool-kit";
 
 // #endregion
 interface ZModalI {
@@ -46,20 +46,30 @@ const ZModal: React.FC<ZModalI> = ({
   onOpenChange,
   crossOnClick,
 }) => {
+  const { isSmScale } = useZMediaQueryScale();
   return (
     <ZDialog open={open} className={className} onOpenChange={onOpenChange}>
       <ZFlex
-        align={ZRUAlignE.center}
-        justify={ZRUJustifyE.between}
-        className="mb-5"
+        className={ZClassNames("mb-5", {
+          "flex-col-reverse gap-2": !isSmScale,
+          "items-center justify-between": isSmScale,
+        })}
       >
-        <Dialog.Title className="text-[1.7rem] mb-0">{title}</Dialog.Title>
+        <Dialog.Title
+          className={ZClassNames("mb-0", {
+            "text-[1.7rem]": isSmScale,
+            "text-[1.4rem]": !isSmScale,
+          })}
+        >
+          {title}
+        </Dialog.Title>
 
         <ZText color={disableCrossBtn ? ZRUColorE.gray : undefined}>
           <ZCloseSvg
             className={ZClassNames("w-6 h-6 text-inherit", {
               "cursor-not-allowed": disableCrossBtn,
               "cursor-pointer": !disableCrossBtn,
+              "ms-auto": !isSmScale,
             })}
             onClick={(e) => !disableCrossBtn && crossOnClick && crossOnClick(e)}
           />

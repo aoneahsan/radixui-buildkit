@@ -59,10 +59,16 @@ const ZPagination: React.FC<ZPaginationI> = ({
   return (
     <ZFlex
       align={ZRUAlignE.center}
-      className="gap-3 px-3 py-2 font-medium maxMd:w-full w-max maxXs:*:w-full maxXs:flex-col"
+      className={ZClassNames(
+        "gap-3 font-medium maxMd:w-full w-max maxXs:*:w-full maxXs:flex-col",
+        {
+          "flex-col *:w-full": !isXsScale,
+          "px-3 py-2": isXsScale,
+        }
+      )}
     >
       <ZText
-        onClick={firstOnClick}
+        onClick={!disableFirst ? firstOnClick : undefined}
         className={ZClassNames("md:text-xs", {
           "opacity-75 cursor-not-allowed": disableFirst,
           "cursor-pointer": !disableFirst,
@@ -80,7 +86,7 @@ const ZPagination: React.FC<ZPaginationI> = ({
       </ZText>
       <ZFlex
         align={ZRUAlignE.center}
-        onClick={previousOnClick}
+        onClick={!disablePrevious ? previousOnClick : undefined}
         className={ZClassNames("gap-1 text-sm", {
           "opacity-75 cursor-not-allowed": disablePrevious,
           "cursor-pointer": !disablePrevious,
@@ -138,7 +144,7 @@ const ZPagination: React.FC<ZPaginationI> = ({
 
       <ZFlex
         align={ZRUAlignE.center}
-        onClick={nextOnClick}
+        onClick={!disableNext ? nextOnClick : undefined}
         className={ZClassNames("gap-1 text-sm", {
           "opacity-75 cursor-not-allowed": disableNext,
           "cursor-pointer": !disableNext,
@@ -155,7 +161,7 @@ const ZPagination: React.FC<ZPaginationI> = ({
         )}
       </ZFlex>
       <ZText
-        onClick={lastOnClick}
+        onClick={!disableLast ? lastOnClick : undefined}
         className={ZClassNames("md:text-xs", {
           "opacity-75 cursor-not-allowed": disableLast,
           "cursor-pointer": !disableLast,

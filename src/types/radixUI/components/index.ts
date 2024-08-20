@@ -1,5 +1,5 @@
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUAsE, ZRUBoxDisplayE, ZRUColorE, ZRUCommonVariantE, ZRUInputTypeE, ZRUMarginI, ZRURadiusE, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
+import type { ZRUAsE, ZRUBoxDisplayE, ZRUCellJustifyE, ZRUColorE, ZRUCommonVariantE, ZRUInputTypeE, ZRUMarginI, ZRUPaddingI, ZRURadiusE, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
 import { ZCanI } from "@src/types/general/ZCan";
 import { CSSProperties } from "react";
 
@@ -93,3 +93,13 @@ export interface ZRUInputI {
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
 };
+
+export interface IZRUColumnCell extends ZRUPaddingI {
+    children?: React.ReactNode;
+    className?: string;
+    style?: Record<string, unknown>;
+    justify?: ZRUCellJustifyE;
+    width?: Responsive<string>;
+    minWidth?: Responsive<string>;
+    maxWidth?: Responsive<string>;
+}

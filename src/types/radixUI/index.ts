@@ -17,6 +17,22 @@ export enum ZRUCommonVariantE {
 }
 
 /**
+ * Enum representing the variant of radix ui table element.
+ */
+export enum ZRUTableVariantE {
+  ghost = 'ghost',
+  surface = 'surface'
+}
+
+/**
+ * Enum representing the layout of radix ui table element.
+ */
+export enum ZRUTableLayoutE {
+  auto = 'auto',
+  fixed = 'fixed'
+}
+
+/**
  * Enum representing the variant of radix Callout elements.
  */
 export enum ZRUCalloutVariantE {
@@ -238,6 +254,16 @@ export enum ZRUBoxDisplayE {
 }
 
 /**
+ * Enum representing the 'align' of radix ui table row element.
+ */
+export enum ZRUTableRowAlignE {
+  start = 'start',
+  center = 'center',
+  end = 'end',
+  baseline = 'baseline',
+}
+
+/**
  * Enum representing the 'align' of radix ui flex element.
  */
 export enum ZRUAlignE {
@@ -275,6 +301,15 @@ export enum ZRUJustifyE {
   center = 'center',
   end = 'end',
   between = 'between'
+}
+
+/**
+ * Enum representing the 'justify' of radix ui table cell element.
+ */
+export enum ZRUCellJustifyE {
+  start = 'start',
+  center = 'center',
+  end = 'end',
 }
 
 /**
@@ -408,6 +443,16 @@ export interface ZRUMarginI {
   mr?: Responsive<string>;
   mb?: Responsive<string>;
   ml?: Responsive<string>;
+}
+
+export interface ZRUPaddingI {
+  p?: Responsive<string>;
+  px?: Responsive<string>;
+  py?: Responsive<string>;
+  pt?: Responsive<string>;
+  pr?: Responsive<string>;
+  pb?: Responsive<string>;
+  pl?: Responsive<string>;
 }
 
 export interface ZRUSelectValueI {

@@ -44,3 +44,13 @@ export { default as ZSlider } from './ZRUSlider';
 export { default as ZSkeleton } from './ZRUSkeleton';
 export { default as ZAspectRatio } from './ZRUAspectRatio';
 export { default as ZCallout } from './ZRUCallout';
+export { default as ZTable } from './ZRUTable';
+export { default as ZTableHeader } from './ZRUTable/Header';
+export { default as ZTableRow } from './ZRUTable/Row';
+export { default as ZTableBody } from './ZRUTable/Body';
+export { default as ZTableRowHeaderCell } from './ZRUTable/RowHeaderCell';
+export { default as ZTableColumnHeaderCell } from './ZRUTable/ColumnHeaderCell';
+export { default as ZTableCell } from './ZRUTable/Cell';
+export { default as ZSegmentedControl } from './ZRUSegmentedControl';
+export { default as ZSegmentedControlItem } from './ZRUSegmentedControl/Item';
+

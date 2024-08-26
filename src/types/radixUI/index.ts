@@ -502,4 +502,8 @@ export type ZRUMarginT =
   | '-8'
   | '-9';
 
+export interface ZRUShowable {
+  show?: boolean;
+}
+
 // #endregion

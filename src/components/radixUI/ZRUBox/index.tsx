@@ -18,6 +18,11 @@ import type { ZRUBoxI } from "@src/types";
 // #endregion
 
 const ZRUBox: React.FC<ZRUBoxI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <ZCan
       role={props?.role}

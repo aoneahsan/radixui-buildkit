@@ -6,6 +6,8 @@ import React from "react";
 // #region ---- Custom Imports ----
 import SideMenu from "./SideMenu";
 import ZHOPopover from "./Popover";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 // #endregion
 
 const ZGlobalComponents: React.FC = () => {
@@ -13,6 +15,8 @@ const ZGlobalComponents: React.FC = () => {
     <>
       <SideMenu />
       <ZHOPopover />
+
+      <ToastContainer />
     </>
   );
 };

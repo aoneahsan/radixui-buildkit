@@ -40,6 +40,7 @@ export interface ZPrizeInputI {
   isTouched?: boolean;
   errorMessage?: string;
   infoText?: string;
+  label?: string;
 }
 // #endregion
 
@@ -52,6 +53,7 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
   isTouched = true,
   errorMessage,
   infoText,
+  label = "Prize",
 }) => {
   const [compState, setCompState] = useState<ZPrizeInputStateI>({
     currency: defaultCurrency,
@@ -105,7 +107,7 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
         as={ZRUTextAsE.label}
         className={ZClassNames(labelClassName, "maxSm:!text-sm")}
       >
-        Prize
+        {label}
         {required ? (
           <ZText as={ZRUTextAsE.span} className="ms-1" color={ZRUColorE.tomato}>
             *
@@ -126,7 +128,7 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
           className="flex-1 maxSm:w-full"
           isTouched={isTouched}
           errorMessage={errorMessage}
-          infoText={infoText} 
+          infoText={infoText}
           onChange={handlePrizeChange}
         >
           <ZInputSlot>

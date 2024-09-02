@@ -1,8 +1,8 @@
-import { ReactNode, useEffect, useState } from "react";
 import { Network } from "@capacitor/network";
-import FullPageLoader from "@src/components/general/FullPageLoader";
-import ZNetworkDisconnected from "@src/components/general/NetworkDisconnected";
 import ErrorBoundary from "@src/components/general/ErrorBoundary";
+import FullPageLoader from "@src/components/general/FullPageLoader";
+import ZNetworkDisconnected from "@src/components/general/ZNetworkDisconnected";
+import { ReactNode, useEffect, useState } from "react";
 
 const NetworkDetectHOC: React.FC<{
   children: ReactNode;

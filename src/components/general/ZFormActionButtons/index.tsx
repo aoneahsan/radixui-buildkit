@@ -1,5 +1,5 @@
 import { ZFormModeE } from "@enums/formData";
-import { ZBox, ZButton, ZFlex } from "@src/components/radixUI";
+import { ZBox, ZButton, ZFlex, ZText } from "@src/components/radixUI";
 import { ZRUColorE, ZRUJustifyE } from "@src/types";
 import { useFormikContext } from "formik";
 
@@ -26,9 +26,9 @@ const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
   if (!formik) {
     return (
       <ZBox className="mb-3">
-        <p aria-colspanstyle={{ color: "red" }}>
+        <ZText color={ZRUColorE.tomato}>
           Error: Please use ZFormActionButtons inside a Formik form.
-        </p>
+        </ZText>
       </ZBox>
     );
   }

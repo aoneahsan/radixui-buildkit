@@ -13,3 +13,8 @@ export enum LoginFormFieldsEnum {
 export enum UserAccountDataFormFieldsEnum {
 	name = 'name',
 }
+
+export enum ZFormModeE {
+	edit = 'edit',
+	add = 'add',
+}

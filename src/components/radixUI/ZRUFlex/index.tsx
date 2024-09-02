@@ -23,9 +23,10 @@ import {
   type ZRUWrapFlexE,
   type ZRUStyleI,
   type ZRUMarginI,
+  type ZRUShowable,
 } from "@src/types/radixUI";
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUFlexI extends ZRUStyleI, ZRUMarginI {
+interface ZRUFlexI extends ZRUStyleI, ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   className?: string;
@@ -94,8 +95,13 @@ const ZRUFlex: React.FC<ZRUFlexI> = ({
   gap,
   gapX,
   gapY,
+  show = true,
   onClick,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Flex
       onClick={onClick}

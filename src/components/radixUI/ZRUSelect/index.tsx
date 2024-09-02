@@ -27,11 +27,12 @@ import {
   ZRUOrientationE,
   ZRUAlignE,
   ZRUJustifyE,
+  type ZRUShowable,
 } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import { ZRUButtonI } from "@src/types";
 
-interface ZRUSelectI {
+interface ZRUSelectI extends ZRUShowable {
   children?: React.ReactNode;
   label?: string;
   asChild?: boolean;
@@ -90,6 +91,7 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
 
   return (
     <ZBox
+      show={props?.show}
       className={ZClassNames(props?.className, {
         "flex items-center gap-1":
           props?.labelOrientation === ZRUOrientationE.horizontal,

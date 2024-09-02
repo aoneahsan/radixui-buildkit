@@ -21,7 +21,7 @@ import ZCan from "@src/components/general/ZCan";
 const ZRUButton: React.FC<ZRUButtonI> = (props) => {
   return (
     <ZCan
-      role={props?.role}
+      roles={props?.roles}
       permissions={props?.permissions}
       checkMode={props?.checkMode}
       returnPermissionDeniedView={props?.returnPermissionDeniedView}

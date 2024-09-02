@@ -25,7 +25,7 @@ const ZRUBox: React.FC<ZRUBoxI> = (props) => {
 
   return (
     <ZCan
-      role={props?.role}
+      roles={props?.roles}
       permissions={props?.permissions}
       checkMode={props?.checkMode}
       returnPermissionDeniedView={props?.returnPermissionDeniedView}

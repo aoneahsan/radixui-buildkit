@@ -32,12 +32,12 @@ import { type ZCanI, ZPermissionCheckModeEnum } from "@src/types/general/ZCan";
  */
 const ZCan: React.FC<ZCanI> = ({
   children,
-  role = null,
+  roles = [],
   permissions = [],
   checkMode = ZPermissionCheckModeEnum.every,
   returnPermissionDeniedView = false,
 }): React.ReactElement | null => {
-  const { permissions: userPermissions, role: userRole } = useRecoilValue(
+  const { permissions: userPermissions, roles: userRole } = useRecoilValue(
     ZUserRolesPermissionsRStateAtom
   );
 
@@ -48,9 +48,16 @@ const ZCan: React.FC<ZCanI> = ({
   );
 
   // Check if the user has a specific role
+  // const hasRole = useCallback(
+  //   () => role === null || userRole === role,
+  //   [role, userRole]
+  // );
+
+  // Check if the user has one of the specific roles
   const hasRole = useCallback(
-    () => role === null || userRole === role,
-    [role, userRole]
+    () =>
+      roles?.length === 0 || roles?.every((_role) => roles?.includes(_role)),
+    [roles, userRole]
   );
 
   // Determine if the user has the required permissions based on the check mode

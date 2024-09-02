@@ -10,5 +10,5 @@ export interface ZCanI {
     permissions?: Array<PermissionEnum>;
     checkMode?: ZPermissionCheckModeEnum; // check mode if check every permissions or some permissions, etc.
     returnPermissionDeniedView?: boolean;
-    role?: RoleEnum | null;
+    roles?: Array<RoleEnum> | null;
 }

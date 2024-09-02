@@ -14,7 +14,8 @@ import { Popover } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUPopoverI {
+import { type ZRUShowable } from "@src/types";
+interface ZRUPopoverI extends ZRUShowable {
   children?: React.ReactNode;
   disabled?: boolean;
   asChild?: boolean;
@@ -53,10 +54,15 @@ const ZRUPopover: React.FC<ZRUPopoverI> = ({
   open,
   defaultOpen,
   onOpenChange,
+  show = true,
   trigger = {
     children: null,
   },
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Popover.Root
       open={open}

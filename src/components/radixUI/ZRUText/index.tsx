@@ -47,7 +47,7 @@ interface ZRUTextI extends ZRUMarginI, Omit<ZCanI, "children"> {
 const ZRUText: React.FC<ZRUTextI> = (props) => {
   return (
     <ZCan
-      role={props?.role}
+      roles={props?.roles}
       permissions={props?.permissions}
       checkMode={props?.checkMode}
       returnPermissionDeniedView={props?.returnPermissionDeniedView}

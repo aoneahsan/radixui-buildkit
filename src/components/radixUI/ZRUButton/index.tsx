@@ -10,8 +10,8 @@ import { ZClassNames } from "zaions-react-tool-kit";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUButtonI } from "@src/types";
 import ZCan from "@src/components/general/ZCan";
+import { ZRUButtonI } from "@src/types";
 
 // #endregion
 
@@ -19,6 +19,11 @@ import ZCan from "@src/components/general/ZCan";
  * A customized Radix Button component.
  */
 const ZRUButton: React.FC<ZRUButtonI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <ZCan
       roles={props?.roles}

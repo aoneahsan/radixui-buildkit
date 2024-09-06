@@ -41,11 +41,16 @@ export interface ZPrizeInputI {
   errorMessage?: string;
   infoText?: string;
   label?: string;
+  inputContainerClassName?: string;
+  selectClassName?: string;
+  inputClassName?: string;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
 }
 // #endregion
 
 const ZPrizeInput: React.FC<ZPrizeInputI> = ({
   onChange,
+  onBlur,
   value,
   className,
   labelClassName,
@@ -53,11 +58,14 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
   isTouched = true,
   errorMessage,
   infoText,
+  inputContainerClassName,
+  selectClassName,
+  inputClassName,
   label = "Prize",
 }) => {
   const [compState, setCompState] = useState<ZPrizeInputStateI>({
-    currency: defaultCurrency,
-    prize: "0",
+    currency: value?.currency ?? defaultCurrency,
+    prize: value?.prize ?? "0",
   });
 
   const handleCurrencyChange = useCallback(
@@ -95,11 +103,9 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
 
   useEffect(() => {
     if (value !== undefined && value !== null) {
-      setCompState(() => ({
-        ...value,
-      }));
+      setCompState(value);
     }
-  }, []);
+  }, [value]);
 
   return (
     <ZBox className={ZClassNames(className)}>
@@ -114,10 +120,14 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
           </ZText>
         ) : null}
       </ZText>
-      <ZFlex align={ZRUAlignE.start} gap="1" className="maxSm:flex-col">
+      <ZFlex
+        gap="1"
+        align={ZRUAlignE.start}
+        className={ZClassNames(inputContainerClassName, "maxSm:flex-col")}
+      >
         <ZSelect
           size="3"
-          className="maxSm:w-full sm:w-20"
+          className={ZClassNames(selectClassName, "maxSm:w-full sm:w-20")}
           options={ZCurrenciesData}
           value={compState?.currency?.value}
           triggerClassName="w-full"
@@ -125,11 +135,13 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
         />
         <ZInput
           size="3"
-          className="flex-1 maxSm:w-full"
+          className={ZClassNames(inputClassName, "flex-1 maxSm:w-full")}
           isTouched={isTouched}
           errorMessage={errorMessage}
           infoText={infoText}
           onChange={handlePrizeChange}
+          onBlur={onBlur}
+          value={compState?.prize}
         >
           <ZInputSlot>
             <ZText className="ps-1">{compState?.currency?.symbol}</ZText>

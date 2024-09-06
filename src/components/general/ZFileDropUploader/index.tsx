@@ -1,17 +1,17 @@
 // #region ---- Core Imports ----
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
-import Dropzone, { DropEvent, FileRejection } from "react-dropzone";
-import { isZNonEmptyString } from "zaions-tool-kit";
 import { FilePlusIcon } from "@radix-ui/react-icons";
+import Dropzone, { DropEvent, FileError, FileRejection } from "react-dropzone";
 import {
   useZMediaQueryScale,
   ZClassNames,
   ZDropzoneAccept,
 } from "zaions-react-tool-kit";
+import { isZNonEmptyString } from "zaions-tool-kit";
 
 // #endregion
 
@@ -69,6 +69,7 @@ interface ZFileDropUploaderI {
     event: DropEvent;
     localUrl: string;
   }) => void;
+  validator?: <T extends File>(file: T) => FileError | FileError[] | null;
 }
 // #endregion
 
@@ -99,6 +100,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
   onDragOver,
   onDropAccepted,
   onDropRejected,
+  validator,
 }) => {
   const { isSmScale } = useZMediaQueryScale();
   const _isError = useMemo(
@@ -144,6 +146,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
         onDropAccepted={onDropAccepted}
         onDropRejected={onDropRejected}
         onDragLeave={onDragLeave}
+        validator={validator}
         onDrop={(acceptedFiles, fileRejections, event) => {
           if (!disabled || !loading) {
             const file =
@@ -152,6 +155,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
             if (file) {
               url = URL.createObjectURL(file);
             }
+
             if (onChange !== undefined) {
               onChange({
                 acceptedFiles,
@@ -164,15 +168,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
         }}
       >
         {({ getRootProps, getInputProps, open, isDragActive }) => {
-          // if (children) {
-          //   return (
-          //     <ZFlex className="flex-col" {...getRootProps()}>
-          //       <input {...getInputProps()} />
-          //       {children}
-          //     </ZFlex>
-          //   );
-          // } else {
-          return (
+          const content = children ?? (
             <ZCard
               className={ZClassNames("p-0", {
                 "opacity-40 cursor-not-allowed": disabled,
@@ -191,9 +187,7 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
                   align={ZRUAlignE.center}
                   justify={ZRUJustifyE.center}
                   direction={ZRUDirectionE.column}
-                  {...getRootProps()}
                 >
-                  <input {...getInputProps()} />
                   {isZNonEmptyString(localUrl) ? (
                     <img
                       src={localUrl ?? ""}
@@ -233,7 +227,12 @@ const ZFileDropUploader: React.FC<ZFileDropUploaderI> = ({
               </ZAspectRatio>
             </ZCard>
           );
-          // }
+          return (
+            <ZBox {...getRootProps()}>
+              <input {...getInputProps()} />
+              {content}
+            </ZBox>
+          );
         }}
       </Dropzone>
       {/* Error */}

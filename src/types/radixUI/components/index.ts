@@ -1,9 +1,9 @@
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUAsE, ZRUBoxDisplayE, ZRUCellJustifyE, ZRUColorE, ZRUCommonVariantE, ZRUInputTypeE, ZRUMarginI, ZRUPaddingI, ZRURadiusE, ZRUShowable, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
 import { ZCanI } from "@src/types/general/ZCan";
 import { CSSProperties } from "react";
+import type { ZRUAsE, ZRUBoxDisplayE, ZRUCellJustifyE, ZRUColorE, ZRUCommonVariantE, ZRUInputTypeE, ZRUMarginI, ZRUPaddingI, ZRURadiusE, ZRUShowable, ZRUSizeT, ZRUStyleI, ZRUVariantE } from "..";
 
-export interface ZRUButtonI extends ZRUMarginI, Omit<ZCanI, 'children'> {
+export interface ZRUButtonI extends ZRUMarginI, ZRUShowable, Omit<ZCanI, 'children'> {
     children?: React.ReactNode;
     className?: string;
     style?: Record<string, unknown>;

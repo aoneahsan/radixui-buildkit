@@ -14,19 +14,20 @@ import { Text } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  type ZRUTextAsE,
-  type ZRUTextSizeT,
-  type ZRUWeightE,
-  type ZRUGeneralAlignE,
-  type ZRUTrimE,
-  type ZRUWrapE,
-  type ZRUColorE,
-  type ZRUMarginI,
-} from "@src/types/radixUI";
 import ZCan from "@src/components/general/ZCan";
 import { ZCanI } from "@src/types";
-interface ZRUTextI extends ZRUMarginI, Omit<ZCanI, "children"> {
+import {
+  type ZRUColorE,
+  type ZRUGeneralAlignE,
+  type ZRUMarginI,
+  type ZRUShowable,
+  type ZRUTextAsE,
+  type ZRUTextSizeT,
+  type ZRUTrimE,
+  type ZRUWeightE,
+  type ZRUWrapE,
+} from "@src/types/radixUI";
+interface ZRUTextI extends ZRUMarginI, ZRUShowable, Omit<ZCanI, "children"> {
   children?: React.ReactNode;
   asChild?: boolean;
   className?: string;
@@ -45,6 +46,11 @@ interface ZRUTextI extends ZRUMarginI, Omit<ZCanI, "children"> {
 // #endregion
 
 const ZRUText: React.FC<ZRUTextI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <ZCan
       roles={props?.roles}

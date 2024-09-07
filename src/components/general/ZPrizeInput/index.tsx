@@ -55,7 +55,7 @@ const ZPrizeInput: React.FC<ZPrizeInputI> = ({
   className,
   labelClassName,
   required = false,
-  isTouched = true,
+  isTouched,
   errorMessage,
   infoText,
   inputContainerClassName,

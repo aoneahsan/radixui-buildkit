@@ -16,21 +16,21 @@ import { ZBox, ZButton, ZFlex, ZText } from "..";
 // #endregion
 
 // #region ---- Types Imports ----
-import {
-  ZRUColorE,
-  ZRUSelectContentPositionE,
-  type ZRUBasicVariantE,
-  type ZRURadiusE,
-  type ZRUMarginI,
-  type ZRUSelectValueI,
-  ZRUTextAsE,
-  ZRUOrientationE,
-  ZRUAlignE,
-  ZRUJustifyE,
-  type ZRUShowable,
-} from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import { ZRUButtonI } from "@src/types";
+import {
+  ZRUAlignE,
+  ZRUColorE,
+  ZRUJustifyE,
+  ZRUOrientationE,
+  ZRUSelectContentPositionE,
+  ZRUTextAsE,
+  type ZRUBasicVariantE,
+  type ZRUMarginI,
+  type ZRURadiusE,
+  type ZRUSelectValueI,
+  type ZRUShowable,
+} from "@src/types/radixUI";
 
 interface ZRUSelectI extends ZRUShowable {
   children?: React.ReactNode;
@@ -137,7 +137,6 @@ const ZRUSelect: React.FC<ZRUSelectI> = (props) => {
         open={props.open}
         value={props.value}
         disabled={props.disabled}
-        required={props.required}
         defaultOpen={props.defaultOpen}
         defaultValue={props.defaultValue}
         autoComplete={props.autoComplete}

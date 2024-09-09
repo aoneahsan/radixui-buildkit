@@ -31,7 +31,7 @@ import { ZRUAlignE, ZRUColorE, ZRUDirectionE, ZRUTextSizeT } from "@src/types";
 // #endregion
 
 const ZCountdown: React.FC<{
-  date?: string;
+  date?: string | number;
   size?: ZRUTextSizeT;
   onComplete?:
     | ((timeDelta: CountdownTimeDelta, completedOnStart: boolean) => void)

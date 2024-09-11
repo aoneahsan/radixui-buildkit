@@ -14,20 +14,11 @@ import { ZAspectRatio, ZSkeleton } from "@src/components/radixUI";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { ZRUAspectRatioI, ZRUSkeletonI } from "@src/types";
+import type { IZImage } from "@src/types/general/ZImage";
 
 // #endregion
 
-const ZImage: React.FC<
-  Omit<ZRUAspectRatioI, "className" | " children"> &
-    Omit<ZRUSkeletonI, "className" | " children"> & {
-      src?: string;
-      alt?: string;
-      skeletonClassName?: string;
-      aspectRatioClassName?: string;
-      imgClassName?: string;
-    }
-> = (props) => {
+const ZImage: React.FC<IZImage> = (props) => {
   return (
     <ZSkeleton
       className={props.skeletonClassName}

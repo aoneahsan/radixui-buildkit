@@ -14,6 +14,10 @@ import type { ZRUAspectRatioI } from "@src/types";
 // #endregion
 
 const ZRUAspectRatio: React.FC<ZRUAspectRatioI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
   return <AspectRatio {...props}>{props.children}</AspectRatio>;
 };
 

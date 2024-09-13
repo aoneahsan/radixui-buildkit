@@ -13,13 +13,14 @@ import { Progress } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  type ZRURadiusE,
-  type ZRUColorE,
-  type ZRUTriggerVariantE,
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type {
+  ZRUColorE,
+  ZRURadiusE,
+  ZRUShowable,
+  ZRUTriggerVariantE,
 } from "@src/types/radixUI";
-interface ZRUProgressI {
+interface ZRUProgressI extends ZRUShowable {
   className?: string;
   style?: Record<string, unknown>;
   size?: Responsive<"1" | "2" | "3">;
@@ -36,6 +37,10 @@ interface ZRUProgressI {
  * A customized Radix Progress component.
  */
 const ZRUProgress: React.FC<ZRUProgressI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
   return <Progress {...props} />;
 };
 

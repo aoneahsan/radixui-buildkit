@@ -14,8 +14,8 @@ import { Table } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUTableRowAlignE } from "@src/types";
-interface IZRUTableRow {
+import type { ZRUShowable, ZRUTableRowAlignE } from "@src/types";
+interface IZRUTableRow extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -28,7 +28,12 @@ const ZRUTableRow: React.FC<IZRUTableRow> = ({
   style,
   align,
   children,
+  show = true,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Table.Row className={className} style={style} align={align}>
       {children}

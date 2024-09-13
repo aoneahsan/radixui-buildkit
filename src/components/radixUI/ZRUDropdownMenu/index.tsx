@@ -13,9 +13,9 @@ import { DropdownMenu } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type ZRUColorE } from "@src/types/radixUI";
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUDropdownMenuI {
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { ZRUColorE, ZRUShowable } from "@src/types/radixUI";
+interface ZRUDropdownMenuI extends ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   style?: Record<string, unknown>;
@@ -36,6 +36,7 @@ const ZRUDropdownMenu: React.FC<ZRUDropdownMenuI> = ({
   size,
   color,
   highContrast,
+  show = true,
   trigger = {
     children: (
       <>
@@ -45,6 +46,11 @@ const ZRUDropdownMenu: React.FC<ZRUDropdownMenuI> = ({
     ),
   },
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>

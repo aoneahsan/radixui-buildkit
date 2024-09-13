@@ -13,9 +13,13 @@ import { Checkbox } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type ZRUTriggerVariantE, type ZRUColorE } from "@src/types/radixUI";
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUCheckboxI {
+import type {
+  ZRUColorE,
+  ZRUShowable,
+  ZRUTriggerVariantE,
+} from "@src/types/radixUI";
+interface ZRUCheckboxI extends ZRUShowable {
   checked?: boolean;
   defaultChecked?: boolean;
   children?: React.ReactNode;
@@ -35,6 +39,11 @@ interface ZRUCheckboxI {
  * A customized Radix Checkbox component.
  */
 const ZRUCheckbox: React.FC<ZRUCheckboxI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <Checkbox {...props} />;
 };
 

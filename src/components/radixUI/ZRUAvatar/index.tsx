@@ -14,9 +14,14 @@ import { ZSpinner } from "..";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRURadiusE, ZRUColorE, ZRUAvatarVariantE } from "@src/types/radixUI";
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUAvatarI {
+import {
+  ZRUAvatarVariantE,
+  ZRUColorE,
+  ZRURadiusE,
+  ZRUShowable,
+} from "@src/types/radixUI";
+interface ZRUAvatarI extends ZRUShowable {
   className?: string;
   src?: string;
   style?: Record<string, unknown>;
@@ -46,7 +51,12 @@ const ZRUAvatar: React.FC<ZRUAvatarI> = ({
   fallback,
   size,
   loading,
+  show = true,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Avatar
       className={className}

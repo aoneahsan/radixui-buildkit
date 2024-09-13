@@ -9,14 +9,15 @@ import { IconButton } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import {
-  type ZRUSizeT,
-  type ZRUVariantE,
-  type ZRUColorE,
-  type ZRURadiusE,
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type {
+  ZRUColorE,
+  ZRURadiusE,
+  ZRUShowable,
+  ZRUSizeT,
+  ZRUVariantE,
 } from "@src/types/radixUI";
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUIconButtonI {
+interface ZRUIconButtonI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -35,6 +36,11 @@ interface ZRUIconButtonI {
  * A customized Radix Icon Button component.
  */
 const ZRUIconButton: React.FC<ZRUIconButtonI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <IconButton type="button" {...props}>
       {props?.children}

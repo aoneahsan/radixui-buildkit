@@ -17,6 +17,11 @@ import { ZRURadioCardsItemI } from "@src/types";
  * A customized Radix Radio item component.
  */
 const ZRURadioCardsItem: React.FC<ZRURadioCardsItemI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <RadioCards.Item {...props}>{props?.children}</RadioCards.Item>;
 };
 

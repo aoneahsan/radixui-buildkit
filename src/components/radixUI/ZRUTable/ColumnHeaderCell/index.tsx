@@ -18,6 +18,11 @@ import type { IZRUColumnCell } from "@src/types";
 // #endregion
 
 const ZRUColumnHeaderCell: React.FC<IZRUColumnCell> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <Table.ColumnHeaderCell {...props}>
       {props?.children}

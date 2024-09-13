@@ -13,9 +13,13 @@ import { CheckboxGroup } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { type ZRUTriggerVariantE, type ZRUColorE } from "@src/types/radixUI";
-interface ZRUCheckboxGroupI {
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type {
+  ZRUColorE,
+  ZRUShowable,
+  ZRUTriggerVariantE,
+} from "@src/types/radixUI";
+interface ZRUCheckboxGroupI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -37,6 +41,11 @@ interface ZRUCheckboxGroupI {
  * A customized Radix CheckboxGroup component.
  */
 const ZRUCheckboxGroup: React.FC<ZRUCheckboxGroupI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <CheckboxGroup.Root {...props}>{props?.children}</CheckboxGroup.Root>;
 };
 

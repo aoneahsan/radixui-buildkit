@@ -14,8 +14,8 @@ import { ZUserRolesPermissionsRStateAtom } from "@src/store/user";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { PermissionEnum } from "zaions-tool-kit";
 import { type ZCanI, ZPermissionCheckModeEnum } from "@src/types/general/ZCan";
+import type { PermissionEnum } from "zaions-tool-kit";
 // #endregion
 
 /**
@@ -56,7 +56,7 @@ const ZCan: React.FC<ZCanI> = ({
   // Check if the user has one of the specific roles
   const hasRole = useCallback(
     () =>
-      roles?.length === 0 || roles?.every((_role) => roles?.includes(_role)),
+      roles?.length === 0 || roles?.every((_role) => userRole?.includes(_role)),
     [roles, userRole]
   );
 

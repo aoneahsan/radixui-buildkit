@@ -13,8 +13,8 @@ import { DropdownMenu } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type ZRUColorE } from "@src/types/radixUI";
-interface ZRUDropdownMenuItemI {
+import type { ZRUColorE, ZRUShowable } from "@src/types/radixUI";
+interface ZRUDropdownMenuItemI extends ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   style?: Record<string, unknown>;
@@ -25,6 +25,11 @@ interface ZRUDropdownMenuItemI {
 // #endregion
 
 const ZRUDropdownMenuItem: React.FC<ZRUDropdownMenuItemI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <DropdownMenu.Item {...props}>{props?.children}</DropdownMenu.Item>;
 };
 

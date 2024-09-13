@@ -5,7 +5,6 @@ import React from "react";
 
 // #region ---- Packages Imports ----
 import { CheckboxCards } from "@radix-ui/themes";
-
 // #endregion
 
 // #region ---- Custom Imports ----
@@ -13,7 +12,9 @@ import { CheckboxCards } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-interface ZRUCheckboxCardsItemI {
+import type { ZRUShowable } from "@src/types";
+
+interface ZRUCheckboxCardsItemI extends ZRUShowable {
   value: string;
   children?: React.ReactNode;
   className?: string;
@@ -26,6 +27,11 @@ interface ZRUCheckboxCardsItemI {
  * A customized Radix Checkbox item component.
  */
 const ZRUCheckboxCardsItem: React.FC<ZRUCheckboxCardsItemI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <CheckboxCards.Item {...props}>{props?.children}</CheckboxCards.Item>;
 };
 

@@ -14,8 +14,8 @@ import { Card } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { type ZRUBasicVariantE } from "@src/types/radixUI";
-interface ZRUCardI {
+import type { ZRUBasicVariantE, ZRUShowable } from "@src/types/radixUI";
+interface ZRUCardI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -30,6 +30,10 @@ interface ZRUCardI {
  * A customized Radix Card component.
  */
 const ZRUCard: React.FC<ZRUCardI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
   return <Card {...props}>{props?.children}</Card>;
 };
 

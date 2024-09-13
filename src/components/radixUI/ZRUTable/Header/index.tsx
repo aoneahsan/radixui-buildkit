@@ -5,6 +5,7 @@ import React from "react";
 
 // #region ---- Packages Imports ----
 import { Table } from "@radix-ui/themes";
+import { ZRUShowable } from "@src/types";
 
 // #endregion
 
@@ -13,7 +14,7 @@ import { Table } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-interface IZRUTableHeader {
+interface IZRUTableHeader extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -21,6 +22,11 @@ interface IZRUTableHeader {
 // #endregion
 
 const ZRUTableHeader: React.FC<IZRUTableHeader> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <Table.Header {...props}>{props?.children}</Table.Header>;
 };
 

@@ -1,13 +1,13 @@
 // #region ---- Core Imports ----
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
-import { TextField } from "@radix-ui/themes";
-import { isZNonEmptyString } from "zaions-tool-kit";
-import { ZClassNames } from "zaions-react-tool-kit";
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import { TextField } from "@radix-ui/themes";
+import { ZClassNames } from "zaions-react-tool-kit";
+import { isZNonEmptyString } from "zaions-tool-kit";
 
 // #endregion
 
@@ -18,16 +18,16 @@ import ZRUText from "../ZRUText";
 // #endregion
 
 // #region ---- Types Imports ----
+import type { ZRUInputI } from "@src/types";
 import {
-  ZRUTextAsE,
   ZRUColorE,
   ZRUInputTypeE,
   ZRUSideE,
+  ZRUTextAsE,
   ZRUVariantE,
 } from "@src/types/radixUI";
-import ZRUInputSlot from "./Slot";
 import ZRUIconButton from "../ZRUIconButton";
-import type { ZRUInputI } from "@src/types";
+import ZRUInputSlot from "./Slot";
 
 // #endregion
 
@@ -53,9 +53,15 @@ const ZRUInput: React.FC<ZRUInputI> = ({
   label,
   name,
   type,
+  show = true,
   onChange,
   onBlur,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   // if type is password
   const [showPassword, setShowPassword] = useState(false);
 

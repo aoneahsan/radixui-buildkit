@@ -14,13 +14,14 @@ import { Container } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  type ZRUGeneralAlignE,
-  type ZRUContainerDisplayE,
-  type ZRUSizeT,
-  type ZRUStyleI,
+import type {
+  ZRUContainerDisplayE,
+  ZRUGeneralAlignE,
+  ZRUShowable,
+  ZRUSizeT,
+  ZRUStyleI,
 } from "@src/types/radixUI";
-interface ZRUContainerI extends ZRUStyleI {
+interface ZRUContainerI extends ZRUStyleI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   className?: string;
@@ -32,6 +33,11 @@ interface ZRUContainerI extends ZRUStyleI {
 // #endregion
 
 const ZRUContainer: React.FC<ZRUContainerI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <Container {...props}>{props?.children}</Container>;
 };
 

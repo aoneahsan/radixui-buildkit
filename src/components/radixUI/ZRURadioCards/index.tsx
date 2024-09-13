@@ -17,6 +17,11 @@ import type { ZRURadioCardsGroupI } from "@src/types";
  * A customized Radix Radio cards component.
  */
 const ZRURadioCardsGroup: React.FC<ZRURadioCardsGroupI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return (
     <RadioCards.Root {...props} value={props?.value ?? ""}>
       {props?.children}

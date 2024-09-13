@@ -19,6 +19,7 @@ import {
   ZRUColorE,
   ZRURadioCardsGroupI,
   ZRURadioCardsItemI,
+  ZRUShowable,
   ZRUTextAsE,
 } from "@src/types";
 import ZRUText from "../../ZRUText";
@@ -38,7 +39,7 @@ const ZRURadioCardList: React.FC<
     isTouched?: boolean;
     errorMessage?: string;
     infoText?: string;
-  }
+  } & ZRUShowable
 > = ({
   className,
   style,
@@ -58,6 +59,7 @@ const ZRURadioCardList: React.FC<
   label,
   labelClassName,
   required,
+  show = true,
   onChange,
   onValueChange,
 }) => {
@@ -72,7 +74,7 @@ const ZRURadioCardList: React.FC<
   );
 
   return (
-    <ZBox>
+    <ZBox show={show}>
       {isZNonEmptyString(label) ? (
         <ZRUText as={ZRUTextAsE.label} className={ZClassNames(labelClassName)}>
           {label}

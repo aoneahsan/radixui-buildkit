@@ -15,14 +15,15 @@ import { Link } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  type ZRUTrimE,
-  type ZRULinkWeightE,
-  type ZRUWrapLinkE,
-  type ZRUUnderlineLinkE,
+  ZRUShowable,
   type ZRUColorE,
+  type ZRULinkWeightE,
   type ZRUMarginI,
+  type ZRUTrimE,
+  type ZRUUnderlineLinkE,
+  type ZRUWrapLinkE,
 } from "@src/types/radixUI";
-interface ZRULinkI extends ZRUMarginI {
+interface ZRULinkI extends ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   className?: string;
@@ -42,6 +43,10 @@ interface ZRULinkI extends ZRUMarginI {
 // #endregion
 
 const ZRULink: React.FC<ZRULinkI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
   return <Link {...props}>{props?.children}</Link>;
 };
 

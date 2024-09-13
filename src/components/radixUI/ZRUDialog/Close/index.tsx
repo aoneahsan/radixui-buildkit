@@ -1,10 +1,10 @@
 // #region ---- Core Imports ----
-import React from 'react';
+import React from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
-import { Dialog } from '@radix-ui/themes';
+import { Dialog } from "@radix-ui/themes";
 
 // #endregion
 
@@ -13,7 +13,8 @@ import { Dialog } from '@radix-ui/themes';
 // #endregion
 
 // #region ---- Types Imports ----
-interface ZRUDialogCloseI {
+import type { ZRUShowable } from "@src/types";
+interface ZRUDialogCloseI extends ZRUShowable {
   children?: React.ReactNode;
   disabled?: boolean;
 }
@@ -22,7 +23,15 @@ interface ZRUDialogCloseI {
 /**
  * A customized Radix Dialog Close component.
  */
-const ZRUDialogClose: React.FC<ZRUDialogCloseI> = ({ children, disabled }) => {
+const ZRUDialogClose: React.FC<ZRUDialogCloseI> = ({
+  children,
+  disabled,
+  show = true,
+}) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return <Dialog.Close disabled={disabled}>{children}</Dialog.Close>;
 };
 

@@ -13,19 +13,20 @@ import { Heading } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  type ZRUHeadingAsE,
-  type ZRUTextSizeT,
-  type ZRUStyleI,
-  type ZRUWeightE,
-  type ZRUGeneralAlignE,
-  type ZRUTrimE,
-  type ZRUWrapE,
-  type ZRUColorE,
-  type ZRUMarginI,
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type {
+  ZRUColorE,
+  ZRUGeneralAlignE,
+  ZRUHeadingAsE,
+  ZRUMarginI,
+  ZRUShowable,
+  ZRUStyleI,
+  ZRUTextSizeT,
+  ZRUTrimE,
+  ZRUWeightE,
+  ZRUWrapE,
 } from "@src/types/radixUI";
-interface ZRUHeadingI extends ZRUStyleI, ZRUMarginI {
+interface ZRUHeadingI extends ZRUStyleI, ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   className?: string;
@@ -43,6 +44,11 @@ interface ZRUHeadingI extends ZRUStyleI, ZRUMarginI {
 // #endregion
 
 const ZRUHeading: React.FC<ZRUHeadingI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <Heading {...props}>{props?.children}</Heading>;
 };
 

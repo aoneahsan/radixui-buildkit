@@ -14,9 +14,15 @@ import { DataList } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { ZRUAlignE, ZRUColorE, ZRUOrientationE, ZRUTrimE } from "@src/types";
+import {
+  ZRUAlignE,
+  ZRUColorE,
+  ZRUOrientationE,
+  ZRUShowable,
+  ZRUTrimE,
+} from "@src/types";
 
-interface ZRUDataListI {
+interface ZRUDataListI extends ZRUShowable {
   orientation?: Responsive<ZRUOrientationE>;
   size?: Responsive<"1" | "2" | "3">;
   trim?: ZRUTrimE;
@@ -47,7 +53,13 @@ const ZRUDataList: React.FC<ZRUDataListI> = ({
   size,
   trim,
   className,
+  show = true,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   return (
     <DataList.Root
       orientation={orientation}

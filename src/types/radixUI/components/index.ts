@@ -19,7 +19,7 @@ export interface ZRUButtonI extends ZRUMarginI, ZRUShowable, Omit<ZCanI, 'childr
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface ZRURadioCardsGroupI {
+export interface ZRURadioCardsGroupI extends ZRUShowable {
     children?: React.ReactNode;
     className?: string;
     style?: Record<string, unknown>;
@@ -36,7 +36,7 @@ export interface ZRURadioCardsGroupI {
     onValueChange?: (value: string) => void;
 }
 
-export interface ZRURadioCardsItemI {
+export interface ZRURadioCardsItemI extends ZRUShowable {
     value: string;
     children?: React.ReactNode;
     className?: string;
@@ -53,7 +53,7 @@ export interface ZRUBoxI extends ZRUStyleI, ZRUShowable, Omit<ZCanI, 'children'>
     display?: Responsive<ZRUBoxDisplayE>;
     onClick?: () => void;
 }
-export interface ZRUAspectRatioI {
+export interface ZRUAspectRatioI extends ZRUShowable {
     ratio?: number;
     className?: string;
     children?: React.ReactNode;
@@ -71,7 +71,7 @@ export interface ZRUSkeletonI {
     maxHeight?: Responsive<string>;
 }
 
-export interface ZRUInputI {
+export interface ZRUInputI extends ZRUShowable {
     children?: React.ReactNode;
     className?: string;
     inputClassName?: string;
@@ -94,7 +94,7 @@ export interface ZRUInputI {
     onBlur?: React.FocusEventHandler<HTMLInputElement>;
 };
 
-export interface IZRUColumnCell extends ZRUPaddingI {
+export interface IZRUColumnCell extends ZRUPaddingI, ZRUShowable {
     children?: React.ReactNode;
     className?: string;
     style?: Record<string, unknown>;

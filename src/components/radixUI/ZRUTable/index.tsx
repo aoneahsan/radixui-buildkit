@@ -14,8 +14,12 @@ import { Table } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUTableLayoutE, ZRUTableVariantE } from "@src/types";
-interface IZRUTable {
+import type {
+  ZRUShowable,
+  ZRUTableLayoutE,
+  ZRUTableVariantE,
+} from "@src/types";
+interface IZRUTable extends ZRUShowable {
   children?: React.ReactNode;
   size?: Responsive<"1" | "2" | "3">;
   variant?: ZRUTableVariantE;
@@ -34,7 +38,13 @@ const ZRUTable: React.FC<IZRUTable> = ({
   className,
   style,
   children,
+  show = true,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   return (
     <Table.Root
       size={size}

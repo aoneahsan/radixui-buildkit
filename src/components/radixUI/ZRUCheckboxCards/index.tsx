@@ -10,8 +10,12 @@ import { CheckboxCards } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { type ZRUColorE, type ZRUCommonVariantE } from "@src/types/radixUI";
-interface ZRUCheckboxCardsGroupI {
+import type {
+  ZRUColorE,
+  ZRUCommonVariantE,
+  ZRUShowable,
+} from "@src/types/radixUI";
+interface ZRUCheckboxCardsGroupI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -33,6 +37,11 @@ interface ZRUCheckboxCardsGroupI {
  * A customized Radix Checkbox cards component.
  */
 const ZRUCheckboxCardsGroup: React.FC<ZRUCheckboxCardsGroupI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
+
   return <CheckboxCards.Root {...props}>{props?.children}</CheckboxCards.Root>;
 };
 

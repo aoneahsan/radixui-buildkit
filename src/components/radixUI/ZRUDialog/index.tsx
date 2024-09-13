@@ -13,8 +13,9 @@ import { Dialog } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-interface ZRUDialogI {
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { ZRUShowable } from "@src/types";
+interface ZRUDialogI extends ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;
   size?: Responsive<"1" | "2" | "3" | "4">;
@@ -52,10 +53,15 @@ const ZRUDialog: React.FC<ZRUDialogI> = ({
   className,
   defaultOpen,
   onOpenChange,
+  show = true,
   trigger = {
     children: null,
   },
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Dialog.Root
       open={open}

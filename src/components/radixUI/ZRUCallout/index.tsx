@@ -4,8 +4,8 @@ import React from "react";
 // #endregion
 
 // #region ---- Packages Imports ----
-import { Callout } from "@radix-ui/themes";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { Callout } from "@radix-ui/themes";
 
 // #endregion
 
@@ -15,8 +15,8 @@ import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 // #region ---- Types Imports ----
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUColorE, ZRUCalloutVariantE } from "@src/types";
-interface IZRUCallout {
+import type { ZRUCalloutVariantE, ZRUColorE, ZRUShowable } from "@src/types";
+interface IZRUCallout extends ZRUShowable {
   asChild?: boolean;
   className?: string;
   size?: Responsive<"1" | "2" | "3">;
@@ -43,7 +43,12 @@ const ZRUCallout: React.FC<IZRUCallout> = ({
   showIcon = true,
   contentClassName,
   iconClassName,
+  show = true,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
   return (
     <Callout.Root
       className={className}

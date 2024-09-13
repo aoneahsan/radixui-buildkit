@@ -15,11 +15,12 @@ import { Badge } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  type ZRURadiusE,
   type ZRUBadgeVariantE,
   type ZRUColorE,
+  type ZRURadiusE,
+  type ZRUShowable,
 } from "@src/types/radixUI";
-interface ZRUBadgeI {
+interface ZRUBadgeI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;
   style?: Record<string, unknown>;
@@ -37,6 +38,10 @@ interface ZRUBadgeI {
  * A customized Radix Badge component.
  */
 const ZRUBadge: React.FC<ZRUBadgeI> = (props) => {
+  // Return null if show is false
+  if (props?.show === false) {
+    return null;
+  }
   return <Badge {...props}>{props?.children}</Badge>;
 };
 

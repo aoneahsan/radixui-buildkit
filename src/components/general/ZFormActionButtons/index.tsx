@@ -5,15 +5,19 @@ import { useFormikContext } from "formik";
 
 interface IZFormActionButtonsProps {
   showResetButton?: boolean;
+  resetButtonColor?: ZRUColorE;
   showSubmitButton?: boolean;
-  resetButtonText?: string;
+  resetButtonText?: React.ReactNode;
+  resetButtonDisable?: boolean;
   submitButtonText?: string;
   onResetClicked?: () => void;
   processing?: boolean;
   mode?: ZFormModeE;
 }
 const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
-  resetButtonText,
+  resetButtonText = "Reset",
+  resetButtonDisable,
+  resetButtonColor = ZRUColorE.red,
   showResetButton = true,
   showSubmitButton = true,
   submitButtonText,
@@ -40,11 +44,11 @@ const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
         {showResetButton ? (
           <ZButton
             type={!!onResetClicked ? "button" : "reset"}
-            color={ZRUColorE.red}
-            disabled={processing || !dirty}
+            color={resetButtonColor}
+            disabled={resetButtonDisable ?? (processing || !dirty)}
             onClick={onResetClicked}
           >
-            {resetButtonText ?? "Reset"}
+            {resetButtonText}
           </ZButton>
         ) : null}
         {showSubmitButton ? (

@@ -10,7 +10,7 @@ import { Dialog } from "@radix-ui/themes";
 
 // #region ---- Custom Imports ----
 import { ZDialog, ZFlex, ZText } from "@src/components/radixUI";
-import { ZRUAlignE, ZRUColorE, ZRUJustifyE } from "@src/types";
+import { ZRUColorE } from "@src/types";
 
 // #endregion
 
@@ -33,6 +33,7 @@ interface ZModalI {
   className?: string;
   title?: string;
   disableCrossBtn?: boolean;
+  modalDescription?: string;
   onOpenChange?: (open: boolean) => void;
   crossOnClick?: React.MouseEventHandler<SVGSVGElement>;
 }
@@ -45,10 +46,16 @@ const ZModal: React.FC<ZModalI> = ({
   title = "Title here",
   onOpenChange,
   crossOnClick,
+  modalDescription = "modal",
 }) => {
   const { isSmScale } = useZMediaQueryScale();
   return (
-    <ZDialog open={open} className={className} onOpenChange={onOpenChange}>
+    <ZDialog
+      open={open}
+      className={className}
+      onOpenChange={onOpenChange}
+      aria-describedby={modalDescription}
+    >
       <ZFlex
         className={ZClassNames("mb-5", {
           "flex-col-reverse gap-2": !isSmScale,

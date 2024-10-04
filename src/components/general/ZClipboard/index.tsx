@@ -12,7 +12,7 @@ import { isZNonEmptyString } from "zaions-tool-kit";
 // #region ---- Custom Imports ----
 import { ReactToastifyTypeEnum } from "@enums/reactPackages";
 import { CopyIcon } from "@radix-ui/react-icons";
-import { ZBadge } from "@src/components/radixUI";
+import { ZBadge, ZBox, ZText } from "@src/components/radixUI";
 import { ZRUColorE } from "@src/types";
 import { showNotification } from "@utils/helpers";
 
@@ -33,7 +33,7 @@ const ZClipboard: React.FC<{
     <ZBadge
       color={ZRUColorE.cyan}
       size="3"
-      className="cursor-pointer"
+      className="cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis w-max max-w-[90%] min-w-[4rem]"
       onClick={async () => {
         if (isZNonEmptyString(text)) {
           await zWriteToClipboard(text);
@@ -45,8 +45,10 @@ const ZClipboard: React.FC<{
         }
       }}
     >
-      <CopyIcon />
-      {text}
+      <CopyIcon className="w-4 h-4" />
+      <ZBox className="overflow-hidden whitespace-nowrap text-ellipsis">
+        <ZText>{text}</ZText>
+      </ZBox>
     </ZBadge>
   );
 };

@@ -13,6 +13,7 @@ interface IZFormActionButtonsProps {
   onResetClicked?: () => void;
   processing?: boolean;
   mode?: ZFormModeE;
+  disableSubmitOnFormNotValid?: boolean;
 }
 const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
   resetButtonText = "Reset",
@@ -24,6 +25,7 @@ const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
   onResetClicked,
   processing,
   mode = ZFormModeE.add,
+  disableSubmitOnFormNotValid = true,
 }) => {
   const formik = useFormikContext();
 
@@ -55,7 +57,9 @@ const ZFormActionButtons: React.FC<IZFormActionButtonsProps> = ({
           <ZButton
             type="submit"
             disabled={
-              !isValid || processing || (mode === ZFormModeE.edit && !dirty)
+              (disableSubmitOnFormNotValid && !isValid) ||
+              processing ||
+              (mode === ZFormModeE.edit && !dirty)
             }
             loading={processing}
           >

@@ -27,23 +27,25 @@ interface ZRUDataListI extends ZRUShowable {
   size?: Responsive<"1" | "2" | "3">;
   trim?: ZRUTrimE;
   className?: string;
-  dataList: Array<{
-    label: React.ReactNode;
-    align?: ZRUAlignE;
-    className?: string;
-    labelProps?: {
+  dataList: Array<
+    {
+      label: React.ReactNode;
+      align?: ZRUAlignE;
       className?: string;
-      width?: Responsive<string>;
-      minWidth?: Responsive<string>;
-      maxWidth?: Responsive<string>;
-      color?: ZRUColorE;
-      highContrast?: boolean;
-    };
-    value: React.ReactNode;
-    valueProps?: {
-      className?: string;
-    };
-  }>;
+      labelProps?: {
+        className?: string;
+        width?: Responsive<string>;
+        minWidth?: Responsive<string>;
+        maxWidth?: Responsive<string>;
+        color?: ZRUColorE;
+        highContrast?: boolean;
+      };
+      value: React.ReactNode;
+      valueProps?: {
+        className?: string;
+      };
+    } & ZRUShowable
+  >;
 }
 // #endregion
 
@@ -68,6 +70,9 @@ const ZRUDataList: React.FC<ZRUDataListI> = ({
       className={className}
     >
       {dataList?.map((el, index) => {
+        if (el?.show === false) {
+          return null;
+        }
         return (
           <DataList.Item
             align={el?.align}

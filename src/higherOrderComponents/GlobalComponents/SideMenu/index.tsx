@@ -50,7 +50,7 @@ const SideMenu: React.FC = () => {
   return (
     <ZBox
       className={ZClassNames({
-        "fixed top-0 right-0 p-2 z-10 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
+        "fixed top-0 right-0 p-2 z-100 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
           true,
         "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
         "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
@@ -74,7 +74,7 @@ const SideMenu: React.FC = () => {
       ></ZBox>
       <ZCard
         className={ZClassNames(ZSidebarRState.containerClassName, {
-          "relative z-10 h-full shadow-lg": true,
+          "relative z-100 h-full shadow-lg": true,
           "maxSm:w-[75%!important] maxMd:w-1/2 xl:w-1/3": !isZNonEmptyString(
             ZSidebarRState.width
           ),

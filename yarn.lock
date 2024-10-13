@@ -98,10 +98,10 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
-"@capacitor/browser@^6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@capacitor/browser/-/browser-6.0.2.tgz#29fe5ff31f9e9277e8643d2f01df497dd2575f5f"
-  integrity sha512-mJjdKbpdCAaaDVZD/vjzpJJxL1VvwsGTcEGn+4PpCQyPu3+yNQO7vgjwBV7ZYS6+mZIKeYn5swWq0BFuAcDqFg==
+"@capacitor/browser@^6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@capacitor/browser/-/browser-6.0.3.tgz#c145c95d94ee0b939c170cd2650f242f552c1273"
+  integrity sha512-V5/ViE+fy3rW+6w0L2du4747/hivBcI/5OGOKi01U9YdFvOWbiiGL+qetq1QdkANEqvYd4yoCeXZL2GyGySn5g==
 
 "@capacitor/clipboard@^6.0.1":
   version "6.0.1"
@@ -2593,10 +2593,10 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
-react-toastify@^10.0.5:
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-10.0.5.tgz#6b8f8386060c5c856239f3036d1e76874ce3bd1e"
-  integrity sha512-mNKt2jBXJg4O7pSdbNUfDdTsK9FIdikfsIE/yUCxbAEXl4HMyJaivrVFcn3Elvt5xvCQYhUZm+hqTIu1UXM3Pw==
+react-toastify@^10.0.6:
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-10.0.6.tgz#19c364b1150f495522c738d592d1dcc93879ade1"
+  integrity sha512-yYjp+omCDf9lhZcrZHKbSq7YMuK0zcYkDFTzfRFgTXkTFHZ1ToxwAonzA4JI5CxA91JpjFLmwEsZEgfYfOqI1A==
   dependencies:
     clsx "^2.1.0"
 
@@ -3162,10 +3162,10 @@ zaions-react-tool-kit@0.0.16:
   resolved "https://registry.yarnpkg.com/zaions-react-tool-kit/-/zaions-react-tool-kit-0.0.16.tgz#d5cd47c9518d233af7cc3f02ba1d58f6e63adbeb"
   integrity sha512-LoAj0eZkejL+eIYPcUirYh1HD4VAiFtpBDSPF9ngvu0dSbTiHdr1p6DJAKd1I3slF3ax6yJ/Hw5z7+Ni7P1hpA==
 
-zaions-tool-kit@0.0.74:
-  version "0.0.74"
-  resolved "https://registry.yarnpkg.com/zaions-tool-kit/-/zaions-tool-kit-0.0.74.tgz#553a4de15c68cc392671e51824ccb9985dc14ca4"
-  integrity sha512-OlZVO8xqYgr8NaQlN1SIT8g9NCZ9T35SBfptw8oRRwo/Cj0RczBIXwptXqR6TfrFtARyN/BAWOk5daPqjTmoPg==
+zaions-tool-kit@0.0.79:
+  version "0.0.79"
+  resolved "https://registry.yarnpkg.com/zaions-tool-kit/-/zaions-tool-kit-0.0.79.tgz#6b94f0ca853539a9574cb03509ca39305239aae6"
+  integrity sha512-ZQiCZ/3IOKzk6mK0ChIiuF+fpLnH9SztrOAHgSwlThQvBB26KjJ3cdKgXoCAu0Cy6znBJDon2X11E8kWfoaCzg==
 
 zod@^3.23.8:
   version "3.23.8"

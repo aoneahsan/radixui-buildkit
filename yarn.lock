@@ -3157,15 +3157,15 @@ yn@3.1.1:
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
   integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 
-zaions-react-tool-kit@0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/zaions-react-tool-kit/-/zaions-react-tool-kit-0.0.16.tgz#d5cd47c9518d233af7cc3f02ba1d58f6e63adbeb"
-  integrity sha512-LoAj0eZkejL+eIYPcUirYh1HD4VAiFtpBDSPF9ngvu0dSbTiHdr1p6DJAKd1I3slF3ax6yJ/Hw5z7+Ni7P1hpA==
+zaions-react-tool-kit@0.0.18:
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/zaions-react-tool-kit/-/zaions-react-tool-kit-0.0.18.tgz#aa9d5f0acb2c3ead7c3df9c6c81333129e6df011"
+  integrity sha512-KoVu9poKBZKLPXrsOZC5rW0iTGx3zk9u7q/SqleTSPHfaqIWYlfl5E5FAuDo/MBH/BjdkCt98EL0iFMcydF3fg==
 
-zaions-tool-kit@0.0.79:
-  version "0.0.79"
-  resolved "https://registry.yarnpkg.com/zaions-tool-kit/-/zaions-tool-kit-0.0.79.tgz#6b94f0ca853539a9574cb03509ca39305239aae6"
-  integrity sha512-ZQiCZ/3IOKzk6mK0ChIiuF+fpLnH9SztrOAHgSwlThQvBB26KjJ3cdKgXoCAu0Cy6znBJDon2X11E8kWfoaCzg==
+zaions-tool-kit@0.0.80:
+  version "0.0.80"
+  resolved "https://registry.yarnpkg.com/zaions-tool-kit/-/zaions-tool-kit-0.0.80.tgz#26bb1cca66b7508fb288ecfb2c2e8515833f8019"
+  integrity sha512-WpQPuqfR8+4IHr/WbtJWDkviYMhqKIpgFtEWdBQAbAPqxuABD2UfUO7Zbn00Vl6G/StC+6F/SBouV4E5Oxgv+g==
 
 zod@^3.23.8:
   version "3.23.8"

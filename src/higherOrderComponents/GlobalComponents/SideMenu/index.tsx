@@ -31,6 +31,12 @@ import { ZSidebarRStateAtom } from "@src/store";
 const SideMenu: React.FC = () => {
   const [ZSidebarRState, setZSidebarRState] =
     useRecoilState(ZSidebarRStateAtom);
+  const rootConStyles = useMemo(
+    () => ({
+      ...ZSidebarRState.rootConStyle,
+    }),
+    [ZSidebarRState.rootConStyle]
+  );
   const containerStyles = useMemo(
     () => ({
       width: ZSidebarRState.width,
@@ -50,11 +56,12 @@ const SideMenu: React.FC = () => {
   return (
     <ZBox
       className={ZClassNames({
-        "fixed top-0 right-0 p-2 z-100 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
+        "fixed top-0 right-0 p-2 z-50 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
           true,
         "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
         "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
       })}
+      style={rootConStyles}
     >
       <ZBox
         className={ZClassNames({
@@ -74,7 +81,7 @@ const SideMenu: React.FC = () => {
       ></ZBox>
       <ZCard
         className={ZClassNames(ZSidebarRState.containerClassName, {
-          "relative z-100 h-full shadow-lg": true,
+          "relative z-50 h-full shadow-lg": true,
           "maxSm:w-[75%!important] maxMd:w-1/2 xl:w-1/3": !isZNonEmptyString(
             ZSidebarRState.width
           ),

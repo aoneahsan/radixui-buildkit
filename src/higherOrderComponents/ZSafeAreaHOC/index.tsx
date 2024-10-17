@@ -1,5 +1,3 @@
-import "./style.css";
-
 const ZSafeAreaHOC: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {

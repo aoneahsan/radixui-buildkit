@@ -20,6 +20,7 @@ import { ZBox, ZCard } from "@src/components";
 // #endregion
 
 // #region ---- Store Imports ----
+import SafeAreaHOC from "@src/higherOrderComponents/SafeAreaHOC";
 import { ZSidebarRStateAtom } from "@src/store";
 
 // #endregion
@@ -54,46 +55,48 @@ const SideMenu: React.FC = () => {
   }, [ZSidebarRState.isOpen]);
 
   return (
-    <ZBox
-      className={ZClassNames({
-        "fixed top-0 right-0 p-2 z-50 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
-          true,
-        "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
-        "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
-      })}
-      style={rootConStyles}
-    >
+    <SafeAreaHOC>
       <ZBox
         className={ZClassNames({
-          "absolute top-0 left-0 w-full h-full z-2": true,
-          "bg-transparent": !ZSidebarRState?.shouldBackdropClose,
-          "cursor-pointer bg-[rgba(0,0,0,0.4)]":
-            ZSidebarRState?.shouldBackdropClose,
+          "fixed top-0 right-0 p-2 z-50 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
+            true,
+          "opacity-100 translate-x-0": ZSidebarRState?.isOpen,
+          "opacity-0 -translate-x-[100%]": ZSidebarRState?.isOpen === false,
         })}
-        onClick={() => {
-          if (ZSidebarRState?.shouldBackdropClose === true) {
-            setZSidebarRState((oldValues) => ({
-              ...oldValues,
-              isOpen: false,
-            }));
-          }
-        }}
-      ></ZBox>
-      <ZCard
-        className={ZClassNames(ZSidebarRState.containerClassName, {
-          "relative z-50 h-full shadow-lg": true,
-          "maxSm:w-[75%!important] maxMd:w-1/2 xl:w-1/3": !isZNonEmptyString(
-            ZSidebarRState.width
-          ),
-        })}
-        style={containerStyles}
+        style={rootConStyles}
       >
-        {ZSidebarRState?.component !== undefined &&
-        ZSidebarRState?.component !== null ? (
-          <ZSidebarRState.component {...ZSidebarRState.componentProps} />
-        ) : null}
-      </ZCard>
-    </ZBox>
+        <ZBox
+          className={ZClassNames({
+            "absolute top-0 left-0 w-full h-full z-2": true,
+            "bg-transparent": !ZSidebarRState?.shouldBackdropClose,
+            "cursor-pointer bg-[rgba(0,0,0,0.4)]":
+              ZSidebarRState?.shouldBackdropClose,
+          })}
+          onClick={() => {
+            if (ZSidebarRState?.shouldBackdropClose === true) {
+              setZSidebarRState((oldValues) => ({
+                ...oldValues,
+                isOpen: false,
+              }));
+            }
+          }}
+        ></ZBox>
+        <ZCard
+          className={ZClassNames(ZSidebarRState.containerClassName, {
+            "relative z-50 h-full shadow-lg": true,
+            "maxSm:w-[75%!important] maxMd:w-1/2 xl:w-1/3": !isZNonEmptyString(
+              ZSidebarRState.width
+            ),
+          })}
+          style={containerStyles}
+        >
+          {ZSidebarRState?.component !== undefined &&
+          ZSidebarRState?.component !== null ? (
+            <ZSidebarRState.component {...ZSidebarRState.componentProps} />
+          ) : null}
+        </ZCard>
+      </ZBox>
+    </SafeAreaHOC>
   );
 };
 

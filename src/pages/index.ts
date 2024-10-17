@@ -1,2 +1,2 @@
-export * from './errors'
-export * from './auth'
+export { LoginPage, RegisterPage } from "./auth";
+export { NotFound404Page } from "./errors";

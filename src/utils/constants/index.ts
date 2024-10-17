@@ -1,2 +1,6 @@
-export * from './formFields';
-export * from './defaultValues';
+export { defaultCurrency } from "./defaultValues";
+export {
+  loginFormFields,
+  registerFormFields,
+  userAccountDataFormFields,
+} from "./formFields";

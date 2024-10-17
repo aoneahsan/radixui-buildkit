@@ -1,1 +1,1 @@
-export * from './currencies.data'
+export { ZCurrenciesData } from "./currencies.data";

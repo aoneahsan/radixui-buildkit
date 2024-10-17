@@ -4,13 +4,13 @@ import React from "react";
 // #endregion
 
 // #region ---- Custom Imports ----
-import SideMenu from "./SideMenu";
-import ZHOPopover from "./Popover";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import ZHOPopover from "./Popover";
+import SideMenu from "./SideMenu";
 // #endregion
 
-const ZGlobalComponents: React.FC = () => {
+const ZGlobalComponentsHOC: React.FC = () => {
   return (
     <>
       <SideMenu />
@@ -21,4 +21,4 @@ const ZGlobalComponents: React.FC = () => {
   );
 };
 
-export default ZGlobalComponents;
+export default ZGlobalComponentsHOC;

@@ -20,7 +20,7 @@ import { ZBox, ZCard } from "@src/components";
 // #endregion
 
 // #region ---- Store Imports ----
-import SafeAreaHOC from "@src/higherOrderComponents/SafeAreaHOC";
+import ZSafeAreaHOC from "@src/higherOrderComponents/ZSafeAreaHOC";
 import { ZSidebarRStateAtom } from "@src/store";
 
 // #endregion
@@ -55,7 +55,7 @@ const SideMenu: React.FC = () => {
   }, [ZSidebarRState.isOpen]);
 
   return (
-    <SafeAreaHOC>
+    <ZSafeAreaHOC>
       <ZBox
         className={ZClassNames({
           "fixed top-0 right-0 p-2 z-50 bg-transparent transition-all ease-in-out duration-300 h-full w-full flex justify-start":
@@ -96,7 +96,7 @@ const SideMenu: React.FC = () => {
           ) : null}
         </ZCard>
       </ZBox>
-    </SafeAreaHOC>
+    </ZSafeAreaHOC>
   );
 };
 

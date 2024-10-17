@@ -17,7 +17,7 @@ import { ZClassNames } from "zaions-react-tool-kit";
 // #endregion
 
 // #region ---- Custom Imports ----
-import ZCurrenciesData from "@src/data/currencies.data";
+import { ZCurrenciesData } from "@src/data";
 import { defaultCurrency } from "@utils/constants";
 
 // #endregion

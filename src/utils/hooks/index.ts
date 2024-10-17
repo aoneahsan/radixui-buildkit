@@ -1,1 +1,1 @@
-export * from './globalComponents';
+export { useZPopover, useZSideBar } from "./globalComponents";

@@ -13,14 +13,14 @@ import { DataList } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
   ZRUAlignE,
   ZRUColorE,
   ZRUOrientationE,
-  ZRUShowable,
   ZRUTrimE,
-} from "@src/types";
+} from "@enums/radixUI";
+import { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { ZRUShowable } from "@src/types";
 
 interface ZRUDataListI extends ZRUShowable {
   orientation?: Responsive<ZRUOrientationE>;

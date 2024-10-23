@@ -9,8 +9,8 @@ import { Dialog } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Custom Imports ----
+import { ZRUColorE } from "@enums/radixUI";
 import { ZDialog, ZFlex, ZText } from "@src/components/radixUI";
-import { ZRUColorE } from "@src/types";
 
 // #endregion
 

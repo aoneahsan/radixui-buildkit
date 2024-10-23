@@ -14,18 +14,16 @@ import { ZClassNames } from "zaions-react-tool-kit";
 // #endregion
 
 // #region ---- Types Imports ----
+import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
   ZRUAsE,
-  type ZRUDisplayE,
-  type ZRUDirectionE,
   type ZRUAlignE,
+  type ZRUDirectionE,
+  type ZRUDisplayE,
   type ZRUJustifyE,
   type ZRUWrapFlexE,
-  type ZRUStyleI,
-  type ZRUMarginI,
-  type ZRUShowable,
-} from "@src/types/radixUI";
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+} from "@src/enums/radixUI";
+import type { ZRUMarginI, ZRUShowable, ZRUStyleI } from "@src/types";
 interface ZRUFlexI extends ZRUStyleI, ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;

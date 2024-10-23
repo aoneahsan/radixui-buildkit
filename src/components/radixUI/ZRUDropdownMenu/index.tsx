@@ -14,7 +14,8 @@ import { DropdownMenu } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUColorE, ZRUShowable } from "@src/types/radixUI";
+import type { ZRUColorE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUDropdownMenuI extends ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;

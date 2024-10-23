@@ -14,7 +14,7 @@ import { Separator } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { type ZRUOrientationE, type ZRUColorE } from "@src/types/radixUI";
+import { type ZRUColorE, type ZRUOrientationE } from "@src/enums/radixUI";
 interface ZRUSeparatorI {
   className?: string;
   style?: Record<string, unknown>;

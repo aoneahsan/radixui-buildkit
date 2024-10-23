@@ -15,10 +15,10 @@ import { ScrollArea } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  type ZRUScrollbarsE,
   type ZRURadiusE,
+  type ZRUScrollbarsE,
   type ZRUScrollbarTypeE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
 interface ZRUScrollAreaI {
   children?: React.ReactNode;
   className?: string;

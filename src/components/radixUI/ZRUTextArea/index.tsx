@@ -18,11 +18,11 @@ import ZRUText from "../ZRUText";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  type ZRUTriggerVariantE,
   type ZRURadiusE,
+  type ZRUTriggerVariantE,
   ZRUColorE,
   ZRUTextAsE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
 interface ZRUTextAreaI {
   className?: string;
   labelClassName?: string;

@@ -10,10 +10,10 @@ import { isZNonEmptyString } from "zaions-tool-kit";
 // #endregion
 
 // #region ---- Custom Imports ----
+import { ZRUColorE } from "@enums/radixUI";
 import { ReactToastifyTypeEnum } from "@enums/reactPackages";
 import { CopyIcon } from "@radix-ui/react-icons";
 import { ZBadge, ZBox, ZText } from "@src/components/radixUI";
-import { ZRUColorE } from "@src/types";
 import { showNotification } from "@utils/helpers";
 
 // #endregion

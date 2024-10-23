@@ -2,6 +2,7 @@ export {
   ZAmount,
   ZAmountInput,
   ZAppLoader,
+  ZCan,
   ZClipboard,
   ZCountdown,
   ZErrorBoundary,

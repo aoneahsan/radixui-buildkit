@@ -1,26 +1,33 @@
-import ZRUFlex from "../../radixUI/ZRUFlex";
-import ZRUHeading from "../../radixUI/ZRUHeading";
-import ZRUButton from "../../radixUI/ZRUButton";
 import {
   ZRUAlignE,
   ZRUDirectionE,
   ZRUGeneralAlignE,
   ZRUJustifyE,
-} from "@src/types";
+} from "@enums/radixUI";
+import { ZRUShowable } from "@src/types";
+import ZRUButton from "../../radixUI/ZRUButton";
+import ZRUFlex from "../../radixUI/ZRUFlex";
+import ZRUHeading from "../../radixUI/ZRUHeading";
 
-type IErrorBoundaryProps = {
+interface IErrorBoundaryProps extends ZRUShowable {
   message?: string;
   showGoToHomeButton?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   btnText?: string;
-};
+}
 
 const ErrorBoundary: React.FC<IErrorBoundaryProps> = ({
   message = "Something went wrong",
   showGoToHomeButton = true,
   btnText = "Go Back Home",
   onClick,
+  show,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   return (
     <ZRUFlex
       minHeight="68vh"

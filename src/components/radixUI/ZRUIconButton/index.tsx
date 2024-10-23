@@ -10,13 +10,8 @@ import { IconButton } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type {
-  ZRUColorE,
-  ZRURadiusE,
-  ZRUShowable,
-  ZRUSizeT,
-  ZRUVariantE,
-} from "@src/types/radixUI";
+import type { ZRUColorE, ZRURadiusE, ZRUVariantE } from "@src/enums/radixUI";
+import type { ZRUShowable, ZRUSizeT } from "@src/types";
 interface ZRUIconButtonI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;

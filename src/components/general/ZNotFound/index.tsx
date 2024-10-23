@@ -4,7 +4,7 @@ import {
   ZRUDirectionE,
   ZRUHeadingAsE,
   ZRUJustifyE,
-} from "@src/types";
+} from "@enums/radixUI";
 import React from "react";
 
 // #endregion

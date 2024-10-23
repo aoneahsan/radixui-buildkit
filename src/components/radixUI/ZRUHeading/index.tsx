@@ -18,14 +18,11 @@ import type {
   ZRUColorE,
   ZRUGeneralAlignE,
   ZRUHeadingAsE,
-  ZRUMarginI,
-  ZRUShowable,
-  ZRUStyleI,
-  ZRUTextSizeT,
   ZRUTrimE,
   ZRUWeightE,
   ZRUWrapE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import { ZRUMarginI, ZRUShowable, ZRUStyleI, ZRUTextSizeT } from "@src/types";
 interface ZRUHeadingI extends ZRUStyleI, ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;

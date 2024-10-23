@@ -35,7 +35,7 @@ import {
   ZRUDirectionE,
   ZRUJustifyE,
   ZRUTextAsE,
-} from "@src/types";
+} from "@enums/radixUI";
 interface ZFileDropUploaderI {
   children?: React.ReactNode;
   className?: string;

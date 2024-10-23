@@ -15,12 +15,11 @@ import { ZBox, ZRadioCardsGroup, ZRadioCardsItem } from "../..";
 // #endregion
 
 // #region ---- Types Imports ----
+import { ZRUColorE, ZRUTextAsE } from "@enums/radixUI";
 import {
-  ZRUColorE,
   ZRURadioCardsGroupI,
   ZRURadioCardsItemI,
   ZRUShowable,
-  ZRUTextAsE,
 } from "@src/types";
 import ZRUText from "../../ZRUText";
 

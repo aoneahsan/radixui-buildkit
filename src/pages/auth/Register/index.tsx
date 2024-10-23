@@ -1,16 +1,15 @@
 // #region ---- Core Imports ----
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 
 // #endregion
 
 // #region ---- Packages Imports ----
+import { Form, Formik, FormikHelpers } from "formik";
 import {
   ZClassNames,
-  validateField,
   validateFields,
   zValidationRuleE,
 } from "zaions-react-tool-kit";
-import { Formik, Form, FormikHelpers } from "formik";
 
 // #endregion
 
@@ -24,7 +23,7 @@ import ZRUText from "@src/components/radixUI/ZRUText";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUHeadingAsE, ZRUTextAsE } from "@src/types";
+import { ZRUHeadingAsE, ZRUTextAsE } from "@enums/radixUI";
 import { RegisterI } from "@src/types/pages";
 
 // #endregion
@@ -38,7 +37,6 @@ const LoginPage: React.FC<{
   loginBtnClickHandler?: React.MouseEventHandler<HTMLElement>;
 }> = ({ isProcessing = false, onSubmit, loginBtnClickHandler }) => {
   // #region Functions
-
   const formikValidation = useCallback((values: RegisterI) => {
     const errors = {};
 

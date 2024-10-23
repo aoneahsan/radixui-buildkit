@@ -15,12 +15,8 @@ import { ZSpinner } from "..";
 
 // #region ---- Types Imports ----
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import {
-  ZRUAvatarVariantE,
-  ZRUColorE,
-  ZRURadiusE,
-  ZRUShowable,
-} from "@src/types/radixUI";
+import { ZRUAvatarVariantE, ZRUColorE, ZRURadiusE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUAvatarI extends ZRUShowable {
   className?: string;
   src?: string;

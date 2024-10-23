@@ -1,9 +1,5 @@
+import { ZSideE } from "@enums/general";
 import { ZGenericObject } from "../general";
-
-export enum ZSideE {
-  start = "start",
-  end = "end",
-}
 
 // app vise sidebar interface
 export interface ZSidebarI {

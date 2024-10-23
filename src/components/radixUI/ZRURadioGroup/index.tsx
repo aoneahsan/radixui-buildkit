@@ -14,7 +14,7 @@ import { RadioGroup } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { type ZRUColorE } from "@src/types/radixUI";
+import { type ZRUColorE } from "@src/enums/radixUI";
 interface ZRURadioGroupI {
   children?: React.ReactNode;
   className?: string;

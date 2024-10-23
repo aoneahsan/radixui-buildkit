@@ -14,7 +14,8 @@ import { Card } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUBasicVariantE, ZRUShowable } from "@src/types/radixUI";
+import type { ZRUBasicVariantE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUCardI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;

@@ -18,8 +18,8 @@ import {
   type ZRUBadgeVariantE,
   type ZRUColorE,
   type ZRURadiusE,
-  type ZRUShowable,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import { type ZRUShowable } from "@src/types";
 interface ZRUBadgeI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;

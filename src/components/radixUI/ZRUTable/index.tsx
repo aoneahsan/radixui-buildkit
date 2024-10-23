@@ -13,12 +13,9 @@ import { Table } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
+import { ZRUTableLayoutE, ZRUTableVariantE } from "@enums/radixUI";
 import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type {
-  ZRUShowable,
-  ZRUTableLayoutE,
-  ZRUTableVariantE,
-} from "@src/types";
+import type { ZRUShowable } from "@src/types";
 interface IZRUTable extends ZRUShowable {
   children?: React.ReactNode;
   size?: Responsive<"1" | "2" | "3">;

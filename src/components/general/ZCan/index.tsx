@@ -14,7 +14,8 @@ import { ZUserRolesPermissionsRStateAtom } from "@src/store/user";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type ZCanI, ZPermissionCheckModeEnum } from "@src/types/general/ZCan";
+import { ZPermissionCheckModeEnum } from "@enums/general";
+import { type ZCanI } from "@src/types/general/ZCan";
 import type { PermissionEnum } from "zaions-tool-kit";
 // #endregion
 

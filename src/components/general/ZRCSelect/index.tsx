@@ -4,8 +4,6 @@ import React, { useMemo } from "react";
 // #endregion
 
 // #region ---- Packages Imports ----
-import { useThemeContext } from "@radix-ui/themes";
-import { StylesConfig } from "react-select";
 import {
   cyan,
   cyanDark,
@@ -16,6 +14,8 @@ import {
   slateDark,
   slateDarkA,
 } from "@radix-ui/colors";
+import { useThemeContext } from "@radix-ui/themes";
+import { StylesConfig } from "react-select";
 
 // #endregion
 
@@ -25,8 +25,9 @@ import ZRSelect from "../ZSelect";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRSelectI, ZRUAlignE } from "@src/types";
+import { ZRUAlignE } from "@enums/radixUI";
 import { ZFlex, ZSpinner } from "@src/components/radixUI";
+import { ZRSelectI } from "@src/types";
 import { ZClassNames } from "zaions-react-tool-kit";
 
 // #endregion

@@ -18,7 +18,8 @@ import { getRemainingTimeInMilliseconds } from "@utils/helpers/generic";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUAlignE, ZRUColorE, ZRUDirectionE, ZRUTextSizeT } from "@src/types";
+import { ZRUAlignE, ZRUColorE, ZRUDirectionE } from "@enums/radixUI";
+import { ZRUTextSizeT } from "@src/types";
 
 // #endregion
 

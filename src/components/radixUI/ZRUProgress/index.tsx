@@ -17,9 +17,9 @@ import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import type {
   ZRUColorE,
   ZRURadiusE,
-  ZRUShowable,
   ZRUTriggerVariantE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUProgressI extends ZRUShowable {
   className?: string;
   style?: Record<string, unknown>;

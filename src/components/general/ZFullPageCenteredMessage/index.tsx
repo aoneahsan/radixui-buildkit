@@ -1,10 +1,10 @@
-import { ZButton, ZFlex, ZHeading } from "@src/components/radixUI";
 import {
   ZRUAlignE,
   ZRUDirectionE,
   ZRUGeneralAlignE,
   ZRUJustifyE,
-} from "@src/types";
+} from "@enums/radixUI";
+import { ZButton, ZFlex, ZHeading } from "@src/components/radixUI";
 
 interface IZFullPageCenteredMessageProps {
   message: string;

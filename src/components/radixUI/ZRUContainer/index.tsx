@@ -17,10 +17,8 @@ import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import type {
   ZRUContainerDisplayE,
   ZRUGeneralAlignE,
-  ZRUShowable,
-  ZRUSizeT,
-  ZRUStyleI,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type { ZRUShowable, ZRUSizeT, ZRUStyleI } from "@src/types";
 interface ZRUContainerI extends ZRUStyleI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;

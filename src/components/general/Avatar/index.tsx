@@ -13,6 +13,7 @@ import { isZNonEmptyString } from "zaions-tool-kit";
 // #region ---- Custom Imports ----
 import {
   ZAvatar,
+  ZBox,
   ZButton,
   ZFlex,
   ZPopover,
@@ -22,8 +23,8 @@ import {
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUAlignE, ZRUAvatarVariantE, ZRUColorE } from "@src/types";
-import ZRUBox from "@src/components/radixUI/ZRUBox";
+import { ZRUAlignE, ZRUAvatarVariantE, ZRUColorE } from "@enums/radixUI";
+import { ZRUShowable } from "@src/types";
 
 // #endregion
 
@@ -31,7 +32,7 @@ import ZRUBox from "@src/components/radixUI/ZRUBox";
 
 // #endregion
 
-interface ZUserAvatarI {
+interface ZUserAvatarI extends ZRUShowable {
   className?: string;
   avatarClassName?: string;
   variant?: ZRUAvatarVariantE;
@@ -55,9 +56,15 @@ const ZUserAvatar: React.FC<ZUserAvatarI> = ({
   textClassName,
   text,
   arrowDownClassName,
+  show,
   onClick,
   logoutBtnClickHandler,
 }) => {
+  // Return null if show is false
+  if (show === false) {
+    return null;
+  }
+
   return (
     <ZPopover
       trigger={{
@@ -90,7 +97,7 @@ const ZUserAvatar: React.FC<ZUserAvatarI> = ({
         ),
       }}
     >
-      <ZRUBox className="space-y-2">
+      <ZBox className="space-y-2">
         <ZButton
           onClick={logoutBtnClickHandler}
           className="w-full"
@@ -98,7 +105,7 @@ const ZUserAvatar: React.FC<ZUserAvatarI> = ({
         >
           Logout
         </ZButton>
-      </ZRUBox>
+      </ZBox>
     </ZPopover>
   );
 };

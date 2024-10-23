@@ -15,14 +15,13 @@ import { Link } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  ZRUShowable,
   type ZRUColorE,
   type ZRULinkWeightE,
-  type ZRUMarginI,
   type ZRUTrimE,
   type ZRUUnderlineLinkE,
   type ZRUWrapLinkE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type { ZRUMarginI, ZRUShowable } from "@src/types";
 interface ZRULinkI extends ZRUMarginI, ZRUShowable {
   children?: React.ReactNode;
   asChild?: boolean;

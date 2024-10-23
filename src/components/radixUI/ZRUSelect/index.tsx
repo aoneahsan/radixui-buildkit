@@ -17,7 +17,6 @@ import { ZBox, ZButton, ZFlex, ZText } from "..";
 
 // #region ---- Types Imports ----
 import { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import { ZRUButtonI } from "@src/types";
 import {
   ZRUAlignE,
   ZRUColorE,
@@ -26,11 +25,14 @@ import {
   ZRUSelectContentPositionE,
   ZRUTextAsE,
   type ZRUBasicVariantE,
-  type ZRUMarginI,
   type ZRURadiusE,
-  type ZRUSelectValueI,
-  type ZRUShowable,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type {
+  ZRUButtonI,
+  ZRUMarginI,
+  ZRUSelectValueI,
+  ZRUShowable,
+} from "@src/types";
 
 interface ZRUSelectI extends ZRUShowable {
   children?: React.ReactNode;

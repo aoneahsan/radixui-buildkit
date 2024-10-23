@@ -16,13 +16,13 @@ import { ZBox, ZText } from "..";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
   ZRUColorE,
   ZRUTextAsE,
   type ZRURadiusE,
   type ZRUTriggerVariantE,
-} from "@src/types";
+} from "@enums/radixUI";
+import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
 interface ZRUSliderI {
   size?: Responsive<"1" | "2" | "3">;
   variant?: ZRUTriggerVariantE;

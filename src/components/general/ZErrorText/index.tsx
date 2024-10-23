@@ -14,7 +14,8 @@ import { isZNonEmptyString } from "zaions-tool-kit";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUColorE, ZRUShowable, ZRUTextAsE } from "@src/types";
+import { ZRUColorE, ZRUTextAsE } from "@enums/radixUI";
+import { ZRUShowable } from "@src/types";
 
 // #endregion
 

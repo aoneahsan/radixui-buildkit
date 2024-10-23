@@ -4,21 +4,21 @@ import React, { useMemo } from "react";
 // #endregion
 
 // #region ---- Packages Imports ----
-import Select, { type ActionMeta, type MultiValue } from "react-select";
-import { isZNonEmptyString } from "zaions-tool-kit";
-import { ZClassNames } from "zaions-react-tool-kit";
 import { ZBox, ZButton, ZFlex, ZText } from "@src/components/radixUI";
+import Select, { type ActionMeta, type MultiValue } from "react-select";
+import { ZClassNames } from "zaions-react-tool-kit";
+import { isZNonEmptyString } from "zaions-tool-kit";
 
 // #endregion
 
 // #region ---- Types Imports ----
-import type { ZRSelectOptions } from "@src/types/general";
 import {
   ZRUAlignE,
   ZRUColorE,
   ZRUJustifyE,
   ZRUTextAsE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type { ZRSelectOptions } from "@src/types/general";
 import type { ZRSelectI } from "@src/types/general/ZRSelect";
 
 // #endregion

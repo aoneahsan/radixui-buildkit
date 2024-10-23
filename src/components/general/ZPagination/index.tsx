@@ -18,7 +18,6 @@ import { ZButton, ZFlex, ZText } from "@src/components/radixUI";
 // #endregion
 
 // #region ---- Types Imports ----
-import { ZRUAlignE, ZRUJustifyE, ZRUVariantE } from "@src/types/radixUI";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -26,6 +25,7 @@ import {
   DoubleArrowRightIcon,
 } from "@radix-ui/react-icons";
 import { ZEllipsisHorizontalSvg } from "@src/assets";
+import { ZRUAlignE, ZRUJustifyE, ZRUVariantE } from "@src/enums/radixUI";
 interface ZPaginationI {
   disablePrevious?: boolean;
   disableNext?: boolean;

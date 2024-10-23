@@ -14,11 +14,8 @@ import { Checkbox } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type {
-  ZRUColorE,
-  ZRUShowable,
-  ZRUTriggerVariantE,
-} from "@src/types/radixUI";
+import type { ZRUColorE, ZRUTriggerVariantE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUCheckboxI extends ZRUShowable {
   checked?: boolean;
   defaultChecked?: boolean;

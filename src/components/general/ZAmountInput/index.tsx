@@ -8,8 +8,9 @@ import React from "react";
 // #endregion
 
 // #region ---- Custom Imports ----
+import { ZRUColorE, ZRUInputTypeE } from "@enums/radixUI";
 import { ZInput, ZInputSlot } from "@src/components/radixUI";
-import { ZRUColorE, ZRUInputI, ZRUInputTypeE } from "@src/types";
+import { ZRUInputI } from "@src/types";
 
 // #endregion
 

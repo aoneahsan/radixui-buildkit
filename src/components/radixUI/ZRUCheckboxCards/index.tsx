@@ -10,11 +10,8 @@ import { CheckboxCards } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type {
-  ZRUColorE,
-  ZRUCommonVariantE,
-  ZRUShowable,
-} from "@src/types/radixUI";
+import type { ZRUColorE, ZRUCommonVariantE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUCheckboxCardsGroupI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;

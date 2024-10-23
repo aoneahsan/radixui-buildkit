@@ -15,10 +15,10 @@ import { Switch } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import {
-  type ZRUTriggerVariantE,
   type ZRUColorE,
   type ZRURadiusE,
-} from "@src/types/radixUI";
+  type ZRUTriggerVariantE,
+} from "@src/enums/radixUI";
 interface ZRUSwitchI {
   className?: string;
   style?: Record<string, unknown>;

@@ -18,14 +18,14 @@ import ZRUText from "../ZRUText";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { ZRUInputI } from "@src/types";
 import {
   ZRUColorE,
   ZRUInputTypeE,
   ZRUSideE,
   ZRUTextAsE,
   ZRUVariantE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type { ZRUInputI } from "@src/types";
 import ZRUIconButton from "../ZRUIconButton";
 import ZRUInputSlot from "./Slot";
 

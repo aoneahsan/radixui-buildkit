@@ -15,18 +15,15 @@ import { Text } from "@radix-ui/themes";
 // #region ---- Types Imports ----
 import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
 import ZCan from "@src/components/general/ZCan";
-import { ZCanI } from "@src/types";
 import {
   type ZRUColorE,
   type ZRUGeneralAlignE,
-  type ZRUMarginI,
-  type ZRUShowable,
   type ZRUTextAsE,
-  type ZRUTextSizeT,
   type ZRUTrimE,
   type ZRUWeightE,
   type ZRUWrapE,
-} from "@src/types/radixUI";
+} from "@src/enums/radixUI";
+import type { ZCanI, ZRUMarginI, ZRUShowable, ZRUTextSizeT } from "@src/types";
 interface ZRUTextI extends ZRUMarginI, ZRUShowable, Omit<ZCanI, "children"> {
   children?: React.ReactNode;
   asChild?: boolean;

@@ -1,32 +1,41 @@
 {
-	"compilerOptions": {
-		"target": "es2016",
-		"module": "commonjs",
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "Preserve",
+    "moduleResolution": "Bundler",
 
-		"baseUrl": "./",
-		"paths": {
-			"@utils/*": ["./src/utils/*"],
-			"@enums/*": ["./src/enums/*"],
-			"@src/*": ["./src/*"]
-		},
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["./src/utils/*"],
+      "@enums/*": ["./src/enums/*"],
+      "@src/*": ["./src/*"]
+    },
 
-		"types": ["vitest/globals", "vitest/importMeta"],
+    "types": ["vitest/globals", "vitest/importMeta"],
 
-		"declaration": true,
-		"declarationMap": true,
-		"sourceMap": true,
-		"outDir": "./dist",
-		"removeComments": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
 
-		"esModuleInterop": true,
+    "esModuleInterop": true,
 
-		"forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true,
 
-		"strict": true,
-		"jsx": "react-jsx",
-		"skipLibCheck": true /* Skip type checking all .d.ts files. */
-	},
-	"compileOnSave": true,
-	"exclude": ["node_modules", ".history", "*ignore*", ".vscode", ".git"],
-	"include": ["./src", "./tests"]
+    "strict": true,
+    "jsx": "react-jsx",
+
+    "isolatedDeclarations": true, // very useful, this will check if we have set the return type for our functions making them more type safe
+    "isolatedModules": true, // very useful, when this setting is enabled, we are forced to use "import type" or "export type" when working with types definitions
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "diagnostics": true,
+
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+  "compileOnSave": true,
+  "exclude": ["node_modules", ".history", "*ignore*", ".vscode", ".git"],
+  "include": ["./src", "./tests"]
 }

@@ -1,6 +1,6 @@
 import { ZFormModeE } from "@enums/formData";
 import { ZBox, ZButton, ZFlex, ZText } from "@src/components/radixUI";
-import { ZRUColorE, ZRUJustifyE } from "@src/types";
+import { ZRUColorE, ZRUJustifyE } from "@src/enums";
 import { useFormikContext } from "formik";
 
 interface IZFormActionButtonsProps {

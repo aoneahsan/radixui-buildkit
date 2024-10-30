@@ -13,7 +13,7 @@ import { ScrollArea } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 import {
   type ZRURadiusE,
   type ZRUScrollbarsE,

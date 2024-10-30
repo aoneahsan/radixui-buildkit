@@ -1,5 +1,9 @@
-export { ILoginFormData, IRegisterFormData, ISelectOption } from "./formData";
-export {
+export type {
+  ILoginFormData,
+  IRegisterFormData,
+  ISelectOption,
+} from "./formData";
+export type {
   IZImage,
   ZCanI,
   ZCurrencyI,
@@ -9,9 +13,9 @@ export {
   ZRSelectI,
   ZRSelectOptions,
 } from "./general";
-export { ZPopoverI, ZSidebarI } from "./globalComponents";
-export { LoginI, RegisterI } from "./pages";
-export {
+export type { ZPopoverI, ZSidebarI } from "./globalComponents";
+export type { LoginI, RegisterI } from "./pages";
+export type {
   ResponsiveT,
   ZRUMarginI,
   ZRUMarginT,
@@ -22,7 +26,7 @@ export {
   ZRUStyleI,
   ZRUTextSizeT,
 } from "./radixUI";
-export {
+export type {
   IZRUColumnCell,
   ZRUAspectRatioI,
   ZRUBoxI,

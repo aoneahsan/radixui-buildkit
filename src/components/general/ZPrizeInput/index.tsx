@@ -23,13 +23,8 @@ import { defaultCurrency } from "@utils/constants";
 // #endregion
 
 // #region ---- Types Imports ----
-import {
-  ZPrizeInputOnChange,
-  ZPrizeInputStateI,
-  ZRUAlignE,
-  ZRUColorE,
-  ZRUTextAsE,
-} from "@src/types";
+import { ZRUAlignE, ZRUColorE, ZRUTextAsE } from "@enums/radixUI";
+import { ZPrizeInputOnChange, ZPrizeInputStateI } from "@src/types";
 
 export interface ZPrizeInputI {
   onChange?: ZPrizeInputOnChange;

@@ -9,7 +9,7 @@ import { CheckboxCards } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 import type { ZRUColorE, ZRUCommonVariantE } from "@src/enums/radixUI";
 import { ZRUShowable } from "@src/types";
 interface ZRUCheckboxCardsGroupI extends ZRUShowable {

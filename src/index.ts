@@ -139,7 +139,7 @@ export {
   ZSidebarRStateAtom,
   ZUserRolesPermissionsRStateAtom,
 } from "./store";
-export {
+export type {
   ILoginFormData,
   IRegisterFormData,
   ISelectOption,

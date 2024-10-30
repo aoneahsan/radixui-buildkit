@@ -1,5 +1,5 @@
 import { ZRUOverflowE, ZRUPositionE } from "@enums/radixUI";
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 
 // #region ===== Interfaces =====
 export interface ZRUStyleI {

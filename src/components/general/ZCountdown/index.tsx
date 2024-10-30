@@ -85,4 +85,12 @@ const ZCountdown: React.FC<{
   );
 };
 
-export default React.memo(ZCountdown);
+const _default_1: React.NamedExoticComponent<{
+  date?: string | number;
+  size?: ZRUTextSizeT;
+  onComplete?:
+    | ((timeDelta: CountdownTimeDelta, completedOnStart: boolean) => void)
+    | (() => void);
+}> = React.memo(ZCountdown);
+
+export default _default_1;

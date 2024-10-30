@@ -14,7 +14,7 @@ import { ZClassNames } from "zaions-react-tool-kit";
 // #endregion
 
 // #region ---- Types Imports ----
-import { type Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 import {
   ZRUAsE,
   type ZRUAlignE,

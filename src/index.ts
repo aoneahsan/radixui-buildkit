@@ -6,6 +6,7 @@ export {
   RegisterFormFieldsEnum,
   UserAccountDataFormFieldsEnum,
   ZFormModeE,
+  ZPermissionCheckModeEnum,
   ZRUAccordingTypeE,
   ZRUAlignE,
   ZRUAsE,

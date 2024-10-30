@@ -1,4 +1,4 @@
-import { ZRUAspectRatioI, ZRUSkeletonI } from "@src/enums/radixUI/components";
+import { ZRUAspectRatioI, ZRUSkeletonI } from "@src/types/radixUI/components";
 
 export interface IZImage
   extends Omit<ZRUAspectRatioI, "className" | "children">,

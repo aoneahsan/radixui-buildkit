@@ -1,4 +1,8 @@
-export const ZCurrenciesData = [
+export const ZCurrenciesData: Array<{
+  value: string;
+  label: string;
+  symbol: string;
+}> = [
   { value: "Bitcoin", label: "Bitcoin", symbol: "฿" },
   { value: "Ethereum", label: "Ethereum", symbol: "Ξ" },
   { value: "USDT", label: "USDT", symbol: "USDT" },

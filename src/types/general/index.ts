@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 
-export { ZCanI } from "./ZCan";
-export { IZImage } from "./ZImage";
-export {
+export type { ZCanI } from "./ZCan";
+export type { IZImage } from "./ZImage";
+export type {
   ZCurrencyI,
   ZPrizeInputOnChange,
   ZPrizeInputStateI,
 } from "./ZPrizeInput";
-export { ZRSelectI } from "./ZRSelect";
+export type { ZRSelectI } from "./ZRSelect";
 
 export type ZGenericObject<T> = Record<string, T>;
 

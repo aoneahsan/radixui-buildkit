@@ -19,7 +19,7 @@ import {
   ZRUOrientationE,
   ZRUTrimE,
 } from "@enums/radixUI";
-import { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 import { ZRUShowable } from "@src/types";
 
 interface ZRUDataListI extends ZRUShowable {

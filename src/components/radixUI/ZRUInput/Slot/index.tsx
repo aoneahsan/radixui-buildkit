@@ -13,8 +13,9 @@ import { TextField } from "@radix-ui/themes";
 // #endregion
 
 // #region ---- Types Imports ----
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
-import type { ZRUColorE, ZRUShowable, ZRUSideE } from "@src/enums/radixUI";
+import type { Responsive } from "@radix-ui/themes/props";
+import type { ZRUColorE, ZRUSideE } from "@src/enums/radixUI";
+import { ZRUShowable } from "@src/types";
 interface ZRUInputSlotI extends ZRUShowable {
   children?: React.ReactNode;
   className?: string;

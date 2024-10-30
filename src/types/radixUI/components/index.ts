@@ -8,7 +8,7 @@ import {
   ZRURadiusE,
   ZRUVariantE,
 } from "@enums/radixUI";
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { Responsive } from "@radix-ui/themes/props";
 import { ZCanI } from "@src/types/general/ZCan";
 import type {
   ZRUMarginI,

@@ -22,7 +22,7 @@ import {
   type ZRURadiusE,
   type ZRUTriggerVariantE,
 } from "@enums/radixUI";
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { Responsive } from "@radix-ui/themes/props";
 interface ZRUSliderI {
   size?: Responsive<"1" | "2" | "3">;
   variant?: ZRUTriggerVariantE;

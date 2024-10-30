@@ -15,7 +15,7 @@ import { Callout } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import { ZRUCalloutVariantE, ZRUColorE } from "@enums/radixUI";
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { Responsive } from "@radix-ui/themes/props";
 import type { ZRUShowable } from "@src/types";
 interface IZRUCallout extends ZRUShowable {
   asChild?: boolean;

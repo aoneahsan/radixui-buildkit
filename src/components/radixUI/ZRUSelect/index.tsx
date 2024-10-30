@@ -16,7 +16,7 @@ import { ZBox, ZButton, ZFlex, ZText } from "..";
 // #endregion
 
 // #region ---- Types Imports ----
-import { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import { Responsive } from "@radix-ui/themes/props";
 import {
   ZRUAlignE,
   ZRUColorE,

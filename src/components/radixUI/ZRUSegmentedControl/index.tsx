@@ -14,7 +14,7 @@ import { SegmentedControl } from "@radix-ui/themes";
 
 // #region ---- Types Imports ----
 import type { ZRUCommonVariantE, ZRURadiusE } from "@enums/radixUI";
-import type { Responsive } from "@radix-ui/themes/dist/cjs/props";
+import type { Responsive } from "@radix-ui/themes/props";
 interface IZRUSegmentedControl {
   children?: React.ReactNode;
   size?: Responsive<"1" | "2" | "3">;

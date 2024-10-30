@@ -1,4 +1,5 @@
-import { ZRUButtonI } from "@src/enums/radixUI/components";
+import { ZRUButtonI } from "@src/types/radixUI/components";
+import type { SelectComponents } from "node_modules/react-select/dist/declarations/src/components";
 import type {
   ActionMeta,
   GroupBase,
@@ -8,7 +9,6 @@ import type {
   SingleValue,
   StylesConfig,
 } from "react-select";
-import type { SelectComponents } from "react-select/dist/declarations/src/components";
 import type { ZRSelectOptions } from "..";
 
 export type ZRSelectI = {

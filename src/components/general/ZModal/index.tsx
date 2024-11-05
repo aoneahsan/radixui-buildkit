@@ -31,6 +31,7 @@ interface ZModalI {
   children: React.ReactNode;
   open?: boolean;
   className?: string;
+  titleClassName?: string;
   title?: string;
   disableCrossBtn?: boolean;
   modalDescription?: string;
@@ -41,6 +42,7 @@ interface ZModalI {
 const ZModal: React.FC<ZModalI> = ({
   children,
   className,
+  titleClassName,
   open,
   disableCrossBtn = false,
   title = "Title here",
@@ -63,7 +65,7 @@ const ZModal: React.FC<ZModalI> = ({
         })}
       >
         <Dialog.Title
-          className={ZClassNames("mb-0", {
+          className={ZClassNames(titleClassName, "mb-0", {
             "text-[1.7rem]": isSmScale,
             "text-[1.4rem]": !isSmScale,
           })}

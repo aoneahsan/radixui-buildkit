@@ -1,6 +1,6 @@
 {
 	"name": "radixui-buildkit",
-	"version": "0.0.39",
+	"version": "0.0.1",
 	"description": "A comprehensive React UI toolkit built on Radix UI primitives with TypeScript support, providing components, utilities, and mobile support through Capacitor integration. Created by Ahsan Mahmood.",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",

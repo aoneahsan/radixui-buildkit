@@ -1,26 +1,260 @@
-# Zaions React UI Kit
+# RadixUI BuildKit
 
-## this is generic tool kit package created by team working at Zaions (<https://zaions.com>)
+<div align="center">
+  <img src="https://img.shields.io/npm/v/radixui-buildkit?style=flat-square" alt="npm version" />
+  <img src="https://img.shields.io/npm/dm/radixui-buildkit?style=flat-square" alt="npm downloads" />
+  <img src="https://img.shields.io/github/license/aoneahsan/radixui-buildkit?style=flat-square" alt="license" />
+  <img src="https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square" alt="typescript" />
+</div>
 
-All of our packages are developed with 100% typescript support/safety, mean if you are a types lover then you will love it as well :)
+<div align="center">
+  <p><strong>A comprehensive React UI toolkit built on Radix UI primitives with TypeScript, Tailwind CSS, and mobile support through Capacitor.</strong></p>
+</div>
 
-### Packages Info (we will update the readme soon, with more helpful info)
+## ✨ Features
 
-- [zaions-tool-kit](https://www.npmjs.com/package/zaions-tool-kit?activeTab=readme)
-  - our most generic package, can be used in frontend or backend, frontend/backend compatible.
-  - contains a lot of helper functions, utils, messages, constants and a lot more.
-  - why to use this?
-    - so you don't write the common helpers/constants/utils/more each time in each and every project, instead you use this one package which will help you everywhere.
-- [zaions-express-tool-kit](https://www.npmjs.com/package/zaions-express-tool-kit?activeTab=readme)
-  - this package is for nodejs projects mainly using expressJs.
-- [zaions-react-tool-kit](https://www.npmjs.com/package/zaions-react-tool-kit?activeTab=readme)
-  - this package is for react project, it does not contains UI components (we have a separate package for that), instead this one contains helper functions and many other help full utils to make it easy for you to create react apps.
-- [zaions-react-ui-kit](https://www.npmjs.com/package/zaions-react-ui-kit?activeTab=readme)
-  - As the name suggests, it's our UI library.
-  - But wait, it's not just a UI library, in fact it's a complete UI solution, with higher order components to help you detech network connectivity, errors pages to help you show meaning full errors to users when there's an error and even fully functional working pages, including (not limited to), auth pages, register, login and forget password page and much more, and it contains a lot of code to help you with form management and a lot more.
+- 🎨 **78+ Pre-built Components** - Buttons, Forms, Modals, Tables, and more
+- 🔧 **Built on Radix UI** - Accessible, unstyled UI primitives
+- 📱 **Mobile Ready** - Capacitor integration for native mobile features
+- 🎯 **100% TypeScript** - Full type safety and IntelliSense support
+- 🎭 **Multiple Variants** - Classic, Solid, Soft, Outline, Ghost styles
+- 🧩 **Form Management** - Formik integration with Zod validation
+- 🔄 **State Management** - Recoil atoms for global state
+- 📐 **Responsive Design** - Mobile-first with Tailwind CSS v4
+- 🚀 **Tree-shakeable** - Only import what you need
+- ♿ **Accessible** - WCAG compliant components
 
-#### We hope you will love this and all other packages we have developed for you
+## 📦 Installation
 
-#### please do react out if you face any issue in packages we deliver
+```bash
+# Using npm
+npm install radixui-buildkit
 
-### Once again have fun while working with these packages and let us know your feedback, it keeps us motivated. Have a great day :)
+# Using yarn
+yarn add radixui-buildkit
+
+# Using pnpm
+pnpm add radixui-buildkit
+```
+
+### Peer Dependencies
+
+Make sure you have the required peer dependencies installed:
+
+```bash
+yarn add react recoil formik zod
+```
+
+## 🚀 Quick Start
+
+### 1. Import the CSS
+
+Add the CSS import to your main application file:
+
+```tsx
+import 'radixui-buildkit/dist/index.css';
+```
+
+### 2. Wrap with RecoilRoot
+
+For state management features:
+
+```tsx
+import { RecoilRoot } from 'recoil';
+
+function App() {
+  return (
+    <RecoilRoot>
+      {/* Your app content */}
+    </RecoilRoot>
+  );
+}
+```
+
+### 3. Start Using Components
+
+```tsx
+import { ZButton, ZInput, ZCard } from 'radixui-buildkit';
+
+function MyComponent() {
+  return (
+    <ZCard className="p-6">
+      <ZInput placeholder="Enter your email" type="email" />
+      <ZButton variant="solid" className="mt-4">
+        Submit
+      </ZButton>
+    </ZCard>
+  );
+}
+```
+
+## 📚 Documentation
+
+- [API Documentation](./docs/API.md) - Complete API reference for all exports
+- [Component Examples](./docs/COMPONENTS.md) - Detailed examples for every component
+- [Migration Guide](#migration-from-zaions-react-ui-kit) - Upgrading from the previous version
+
+## 🧩 Component Categories
+
+### Form Components
+- Input, TextArea, Select, Checkbox, Radio
+- Switch, Slider, DatePicker, AmountInput
+- Form validation with Zod schemas
+
+### UI Elements  
+- Button, Badge, Avatar, Card
+- Dialog, Modal, Popover, Tooltip
+- Tabs, Toggle, Accordion, Alert
+
+### Layout Components
+- Box, Flex, Grid, Container
+- ScrollArea, Separator, AspectRatio
+
+### Data Display
+- Table with sorting/filtering
+- Progress bars, Calendar
+- DataList, VirtualList
+
+### Utility Components
+- ErrorBoundary, NetworkDetection
+- Loaders, InfiniteScroll
+- Typography components
+
+### Pre-built Pages
+- Login Page
+- Register Page  
+- 404 Not Found Page
+
+## 🎨 Styling & Variants
+
+Components support multiple style variants:
+
+```tsx
+// Button variants
+<ZButton variant="solid">Solid</ZButton>
+<ZButton variant="outline">Outline</ZButton>
+<ZButton variant="ghost">Ghost</ZButton>
+<ZButton variant="soft">Soft</ZButton>
+
+// Sizes
+<ZButton size="sm">Small</ZButton>
+<ZButton size="md">Medium</ZButton>
+<ZButton size="lg">Large</ZButton>
+```
+
+## 📱 Mobile Support
+
+Built-in Capacitor integration for mobile features:
+
+```tsx
+import { showNotification } from 'radixui-buildkit';
+
+// Native notifications
+showNotification({
+  title: 'Success',
+  message: 'Operation completed',
+  type: 'success'
+});
+```
+
+## 🔌 Higher Order Components
+
+### Network Detection
+```tsx
+import { NetworkDetectHOC } from 'radixui-buildkit';
+
+const MyComponent = NetworkDetectHOC(({ isOnline }) => (
+  <div>Status: {isOnline ? 'Online' : 'Offline'}</div>
+));
+```
+
+### Global Components
+```tsx
+import { ZGlobalComponentsHOC } from 'radixui-buildkit';
+
+const App = ZGlobalComponentsHOC(MyApp);
+```
+
+## 🛠️ Development
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/aoneahsan/radixui-buildkit.git
+cd radixui-buildkit
+
+# Install dependencies
+yarn install
+
+# Start development
+yarn dev
+```
+
+### Available Scripts
+
+```bash
+yarn dev          # Start development mode
+yarn build        # Build the package
+yarn test         # Run tests
+yarn build:css    # Build CSS only
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+## 📄 License
+
+MIT © [Ahsan Mahmood](https://github.com/aoneahsan)
+
+## 🔗 Links
+
+- [NPM Package](https://www.npmjs.com/package/radixui-buildkit)
+- [GitHub Repository](https://github.com/aoneahsan/radixui-buildkit)
+- [Issue Tracker](https://github.com/aoneahsan/radixui-buildkit/issues)
+- [Changelog](./CHANGELOG.md)
+
+## 🙏 Acknowledgments
+
+Built with:
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible UI components
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Capacitor](https://capacitorjs.com/) - Native mobile bridge
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+
+## 💬 Support
+
+- 📧 Email: aoneahsan@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/aoneahsan/radixui-buildkit/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/aoneahsan/radixui-buildkit/discussions)
+
+## Migration from zaions-react-ui-kit
+
+If you're migrating from the previous `zaions-react-ui-kit` package:
+
+1. Update your package.json:
+   ```json
+   {
+     "dependencies": {
+       "radixui-buildkit": "latest"
+     }
+   }
+   ```
+
+2. Update your imports:
+   ```tsx
+   // Old
+   import { ZButton } from 'zaions-react-ui-kit';
+   
+   // New
+   import { ZButton } from 'radixui-buildkit';
+   ```
+
+3. No API changes - all components maintain the same interfaces!
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://aoneahsan.com">Ahsan Mahmood</a></p>
+</div>

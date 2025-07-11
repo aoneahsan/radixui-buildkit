@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **zaions-react-ui-kit** - a comprehensive React UI component library built by the Zaions Dev Team. It provides a complete UI solution with components, pages, utilities, and mobile support through Capacitor integration.
+This is **radixui-buildkit** - a comprehensive React UI component library built by Ahsan Mahmood. It provides a complete UI solution with components, pages, utilities, and mobile support through Capacitor integration.
 
 ## Development Commands
 
@@ -39,7 +39,7 @@ yarn build:css
 ```
 
 ### Local Package Development
-When working with other Zaions packages locally:
+When working with other packages locally:
 ```bash
 # Link local Zaions packages
 yarn link:local
@@ -117,11 +117,11 @@ This package requires the following peer dependencies:
 - Formik
 - Various Capacitor packages
 - Radix UI components
-- Other Zaions packages (zaions-tool-kit, zaions-react-tool-kit)
+- Other packages (zaions-tool-kit, zaions-react-tool-kit)
 
 ## Development Tips
 - Always use yarn for package management
 - Run `yarn dev` during development for hot reload
 - Build CSS separately with `yarn build:css:watch` if working on styles
-- Link local Zaions packages when developing across multiple packages
+- Link local packages when developing across multiple packages
 - The package follows semantic versioning - update version in package.json before deploying

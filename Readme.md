@@ -11,6 +11,13 @@
   <p><strong>A comprehensive React UI toolkit built on Radix UI primitives with TypeScript, Tailwind CSS, and mobile support through Capacitor.</strong></p>
 </div>
 
+## 📚 Documentation
+
+- **[API Documentation](./docs/API.md)** - Complete API reference for all exports
+- **[Component Examples](./docs/COMPONENTS.md)** - Detailed examples for every component
+- **[GitHub Repository](https://github.com/aoneahsan/radixui-buildkit)** - Source code and contributions
+- **[NPM Package](https://www.npmjs.com/package/radixui-buildkit)** - Package details and versions
+
 ## ✨ Features
 
 - 🎨 **78+ Pre-built Components** - Buttons, Forms, Modals, Tables, and more
@@ -87,12 +94,6 @@ function MyComponent() {
   );
 }
 ```
-
-## 📚 Documentation
-
-- [API Documentation](./docs/API.md) - Complete API reference for all exports
-- [Component Examples](./docs/COMPONENTS.md) - Detailed examples for every component
-- [Migration Guide](#migration-from-zaions-react-ui-kit) - Upgrading from the previous version
 
 ## 🧩 Component Categories
 

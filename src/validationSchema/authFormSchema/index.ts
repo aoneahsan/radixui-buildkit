@@ -1,42 +1,12 @@
 import { LoginFormFieldsEnum, RegisterFormFieldsEnum } from "@enums/formData";
 import { z as ZOD } from "zod";
 
-export const registerFormValidationSchema: ZOD.ZodEffects<
-  ZOD.ZodObject<
-    {
-      name: ZOD.ZodString;
-      email: ZOD.ZodString;
-      password: ZOD.ZodString;
-      passwordConfirmation: ZOD.ZodString;
-    },
-    "strip",
-    ZOD.ZodTypeAny,
-    {
-      name: string;
-      email: string;
-      password: string;
-      passwordConfirmation: string;
-    },
-    {
-      name: string;
-      email: string;
-      password: string;
-      passwordConfirmation: string;
-    }
-  >,
-  {
-    name: string;
-    email: string;
-    password: string;
-    passwordConfirmation: string;
-  },
-  {
-    name: string;
-    email: string;
-    password: string;
-    passwordConfirmation: string;
-  }
-> = ZOD.object({
+export const registerFormValidationSchema: ZOD.ZodSchema<{
+  name: string;
+  email: string;
+  password: string;
+  passwordConfirmation: string;
+}> = ZOD.object({
   [RegisterFormFieldsEnum.name]: ZOD.string()
     .trim()
     .min(1, { message: "Name is Required." })
@@ -57,22 +27,10 @@ export const registerFormValidationSchema: ZOD.ZodEffects<
   }
 });
 
-export const loginFormValidationSchema: ZOD.ZodObject<
-  {
-    email: ZOD.ZodString;
-    password: ZOD.ZodString;
-  },
-  "strip",
-  ZOD.ZodTypeAny,
-  {
-    email: string;
-    password: string;
-  },
-  {
-    email: string;
-    password: string;
-  }
-> = ZOD.object({
+export const loginFormValidationSchema: ZOD.ZodSchema<{
+  email: string;
+  password: string;
+}> = ZOD.object({
   [LoginFormFieldsEnum.email]: ZOD.string().email().max(255),
   [LoginFormFieldsEnum.password]: ZOD.string().min(6).max(30),
 });

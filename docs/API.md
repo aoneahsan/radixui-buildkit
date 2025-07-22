@@ -24,7 +24,7 @@
 ## Configuration
 
 ### `configureZTK`
-Imported from `zaions-tool-kit`. Configuration function for the toolkit.
+Imported from `ts-buildkit`. Configuration function for the toolkit.
 
 ### `configureZRTK`
 Custom configuration function for RadixUI BuildKit. Currently needs implementation.

@@ -15,8 +15,8 @@
 		"build:css": "tailwindcss -i ./src/style.css -o ./dist/index.css --minify",
 		"build:css:watch": "tailwindcss -i ./src/style.css -o ./dist/index.css --watch",
 		"test": "npm run unlink-packages && vitest",
-		"update:linked-packages": "yarn install --force && yarn link zaions-tool-kit && yarn link zaions-react-tool-kit",
-		"unlink-packages": "yarn unlink zaions-tool-kit && yarn unlink zaions-react-tool-kit && yarn install --force",
+		"update:linked-packages": "yarn install --force && yarn link ts-buildkit && yarn link react-buildkit",
+		"unlink-packages": "yarn unlink ts-buildkit && yarn unlink react-buildkit && yarn install --force",
 		"push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main",
 		"deploy": "npm run build && npm publish"
 	},
@@ -81,10 +81,10 @@
 		"react-select": {
 			"optional": true
 		},
-		"zaions-react-tool-kit": {
+		"react-buildkit": {
 			"optional": false
 		},
-		"zaions-tool-kit": {
+		"ts-buildkit": {
 			"optional": false
 		},
 		"zod": {
@@ -97,8 +97,8 @@
 		"@capacitor/dialog": "^7.0.1",
 		"@capacitor/preferences": "^7.0.1",
 		"@capacitor/toast": "^7.0.1",
-		"@capacitor/core": "^7.2.0",
-		"@capacitor/geolocation": "^7.1.1",
+		"@capacitor/core": "^7.4.2",
+		"@capacitor/geolocation": "^7.1.4",
 		"@capacitor/network": "^7.0.1",
 		"@radix-ui/react-accordion": "^1.2.11",
 		"@radix-ui/react-icons": "^1.3.2",
@@ -110,8 +110,8 @@
 		"react-dropzone": "^14.3.8",
 		"react-select": "^5.10.2",
 		"recoil": "^0.7.7",
-		"zaions-react-tool-kit": "0.0.30",
-		"zaions-tool-kit": "0.0.98",
+		"react-buildkit": "0.0.30",
+		"ts-buildkit": "0.0.98",
 		"zod": "^4.0.5"
 	},
 	"devDependencies": {
@@ -120,19 +120,19 @@
 		"@capacitor/dialog": "^7.0.1",
 		"@capacitor/preferences": "^7.0.1",
 		"@capacitor/toast": "^7.0.1",
-		"@capacitor/core": "^7.2.0",
-		"@capacitor/geolocation": "^7.1.1",
+		"@capacitor/core": "^7.4.2",
+		"@capacitor/geolocation": "^7.1.4",
 		"@capacitor/network": "^7.0.1",
 		"@radix-ui/react-accordion": "^1.2.11",
 		"@radix-ui/react-icons": "^1.3.2",
 		"@radix-ui/themes": "^3.2.1",
-		"@types/node": "^24.0.1",
-		"@types/react": "^19.1.2",
+		"@types/node": "^24.0.15",
+		"@types/react": "^19.1.8",
 		"autoprefixer": "^10.4.21",
 		"crypto-js": "^4.2.0",
 		"dayjs": "^1.11.13",
 		"formik": "^2.4.6",
-		"postcss": "^8.5.4",
+		"postcss": "^8.5.6",
 		"react": "^19.1.0",
 		"react-countdown": "^2.3.6",
 		"react-dropzone": "^14.3.8",
@@ -141,13 +141,13 @@
 		"react-select": "^5.10.2",
 		"react-toastify": "^11.0.5",
 		"recoil": "^0.7.7",
-		"tailwindcss": "^4.1.4",
+		"tailwindcss": "^4.1.11",
 		"ts-node": "^10.9.2",
 		"tsup": "^8.5.0",
 		"typescript": "^5.8.3",
-		"vitest": "^3.2.0",
-		"zaions-react-tool-kit": "0.0.30",
-		"zaions-tool-kit": "0.0.115",
+		"vitest": "^3.2.4",
+		"react-buildkit": "1.0.0",
+		"ts-buildkit": "1.0.0",
 		"zod": "^4.0.5"
 	},
 	"contributors": [

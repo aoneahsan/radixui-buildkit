@@ -1,6 +1,6 @@
 // #region ---- Core Imports ----
-import React, { useMemo } from "react";
-import { ZClassNames } from "zaions-react-tool-kit";
+import React, { useMemo } from 'react';
+import { ZClassNames } from 'react-buildkit';
 
 // #endregion
 
@@ -14,8 +14,8 @@ import { ZClassNames } from "zaions-react-tool-kit";
 
 // #region ---- Types Imports ----
 interface IZPage {
-  children?: React.ReactNode;
-  className?: string;
+	children?: React.ReactNode;
+	className?: string;
 }
 
 /**
@@ -25,21 +25,21 @@ interface IZPage {
  * @param helmet - Optional metadata for the document head provided through ReactHelmet.
  */
 const ZPage: React.FC<IZPage> = ({ children, className }) => {
-  const _style = useMemo<React.CSSProperties>(
-    () => ({
-      width: "100%",
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      overflow: "hidden",
-    }),
-    []
-  );
-  return (
-    <div className={ZClassNames(className)} style={_style}>
-      {children}
-    </div>
-  );
+	const _style = useMemo<React.CSSProperties>(
+		() => ({
+			width: '100%',
+			minHeight: '100vh',
+			display: 'flex',
+			flexDirection: 'column',
+			overflow: 'hidden',
+		}),
+		[]
+	);
+	return (
+		<div className={ZClassNames(className)} style={_style}>
+			{children}
+		</div>
+	);
 };
 
 export default ZPage;
